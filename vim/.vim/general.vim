@@ -5,8 +5,8 @@
 "  /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 "  \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 "
-" author: cai <caianrais@protonmail.com>
-"   code: github.com/caianrais/init
+" author: cai <caianrais@pm.me>
+"   code: github.com/caianrais/dots
 
 
 
