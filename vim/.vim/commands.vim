@@ -97,6 +97,9 @@
     nnoremap <F9> :Goyo 90<CR>
     inoremap <F9> <Esc>:Goyo 90<CR>a
 
+    " Close VIM when the only window left is NERDTree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 " }}}
 " VIM FILETYPE {{{
