@@ -2,7 +2,7 @@
 alias c="clear"
 alias e="emacs -nw"
 alias v="nvim"
-alias tx="tmux -f ~/.config/tmux/.tmux.conf"
+alias tx="fetch_tmux_plugins && tmux -f ~/.config/tmux/.tmux.conf"
 alias kpc="perl $PROJ_DIR/kpclix/kpcli.pl --histfile /dev/null --kdb /media/cai/PD/vault/keychain.kdbx --timeout=600 --no-recycle"
 alias hups="hangups --config ~/.config/hangups/hangups.conf"
 
@@ -16,9 +16,6 @@ alias vbash="v $INIT_DIR/bash/.bashrc"
 alias vtmux="v $INIT_DIR/tmux/.config/tmux/.tmux.conf"
 alias vhups="v $INIT_DIR/hangups/.config/hangups/hangups.conf"
 alias vemacs="v $INIT_DIR/emacs/.emacs"
-
-# org mode
-alias lorg="v ~/Documents/Org/life.org"
 
 # shell externals
 alias venv="v $INIT_DIR/shext/.sh_env"
