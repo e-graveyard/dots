@@ -21,6 +21,7 @@
 
 
     let mapleader=','              " Remaps the 'leader' key
+    let maplocalleader='\'         " Remaps the 'local leader' key
 
     set showcmd                    " Shows the entered command & number of selected lines
     set noswapfile                 " Disables swap files
