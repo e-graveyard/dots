@@ -102,14 +102,16 @@
 
 
 " }}}
-" VIM FILETYPE {{{
+" FOLDING {{{
 
 
     " Folding with markers ({{{ & }}})
     autocmd FileType vim set foldmethod=marker
+    autocmd FileType zsh set foldmethod=marker
 
     " Toggles folding with <Space>
     autocmd FileType vim nnoremap <Space> za
+    autocmd FileType zsh nnoremap <Space> za
 
 
 " }}}
