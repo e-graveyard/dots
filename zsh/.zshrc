@@ -10,31 +10,29 @@
 #   code : github.com/caianrais/dots
 
 
-# SHELL PATH {{{
+# SHEXT AUTOLOAD {{{
 
+    SHELL_EXTERNALS=(
+        '.sh_alias'
+        '.sh_env'
+        '.sh_path'
+    )
 
-    if [ -f $HOME/.sh_path ]; then
-        source $HOME/.sh_path
-    fi
+    fetch_shell_externals()
+    {
+        for ext in "${SHELL_EXTERNALS[@]}"; do
+            local ext_dest="${HOME}/${ext}"
 
+            if ! [ -f "$ext_dest" ]; then
+                curl "https://raw.githubusercontent.com/caianrais/dots/master/shext/${ext}" \
+                    --output $ext_dest --silent
+            fi
 
-# }}}
-# ALIASES {{{
+            source $ext_dest
+        done
+    }
 
-
-    if [ -f $HOME/.sh_alias ]; then
-        source $HOME/.sh_alias
-    fi
-
-
-# }}}
-# ENVIRONMENT VARIABLES {{{
-
-
-    if [ -f $HOME/.sh_env ]; then
-        source $HOME/.sh_env
-    fi
-
+    fetch_shell_externals
 
 # }}}
 # GENERAL DEFINITIONS {{{
@@ -197,6 +195,7 @@
 
 
 # }}}
+
 # loads pywal's colourscheme
 (wal -r -t &)
 
