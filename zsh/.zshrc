@@ -16,6 +16,7 @@
         '.sh_alias'
         '.sh_env'
         '.sh_path'
+        '.sh_func'
     )
 
     fetch_shell_externals()
