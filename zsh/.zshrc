@@ -13,10 +13,10 @@
 # SHEXT AUTOLOAD {{{
 
     SHELL_EXTERNALS=(
-        '.sh_alias'
-        '.sh_env'
-        '.sh_path'
-        '.sh_func'
+        '._alias.sh'
+        '._env.sh'
+        '._path.sh'
+        '._func.sh'
     )
 
     fetch_shell_externals()
