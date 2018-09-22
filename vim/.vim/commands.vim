@@ -110,24 +110,6 @@
 
 
 " }}}
-" ORG FILETYPE {{{
-
-
-    " Jump marker
-    autocmd FileType org nnoremap <Space><Tab> <Esc>/::JUMP::<Enter>"_c8l
-
-    " Backslash (\) as a local leader
-    autocmd FileType org let maplocalleader="\\"
-
-    " Inserts a syntax range block
-    autocmd FileType org nnoremap <localleader>cb $a<Enter><Enter>#+BEGIN_SRC<Enter>::JUMP::<Enter>#+END_SRC<Enter><Esc>3k$a<Space>
-
-    " Set the indentation space in org files to one space wide
-    autocmd FileType org set tabstop=1
-    autocmd FileType org set shiftwidth=1
-
-
-" }}}
 " MISC {{{
 
 
