@@ -48,7 +48,6 @@ call plug#begin('~/.vim/plugged')
     endif
 
 "}}}
-
 " UI {{{
 
 
@@ -82,11 +81,11 @@ call plug#begin('~/.vim/plugged')
 "           <https://github.com/universal-ctags/ctags>
 
 
-    Plug 'majutsushi/tagbar'     " Class outline viewer
-    Plug 'sheerun/vim-polyglot'  " Language collection pack
-    Plug 'fatih/vim-go'          " IDE-like tools for Golang
-    Plug 'sebdah/vim-delve'      " Integration for Delve (Golang debugger)
-    Plug 'Shougo/neosnippet.vim' " Snippet support
+    Plug 'majutsushi/tagbar'          " Class outline viewer
+    Plug 'sheerun/vim-polyglot'       " Language collection pack
+    Plug 'fatih/vim-go'               " IDE-like tools for Golang
+    Plug 'sebdah/vim-delve'           " Integration for Delve (Golang debugger)
+    Plug 'Shougo/neosnippet.vim'      " Snippet support
     Plug 'Shougo/neosnippet-snippets' " Snippet source
 
 
@@ -97,20 +96,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'          " Git wrapper
     Plug 'airblade/vim-gitgutter'      " Shows git diff in the gutter
     Plug 'Xuyuanp/nerdtree-git-plugin' " Git status flags in NERDTree
-
-
-" }}}
-" ORG MODE {{{
-
-
-    Plug 'vim-scripts/utl.vim'        , { 'for': 'org' } " URL-based hyperlink functions
-    Plug 'tpope/vim-repeat'           , { 'for': 'org' } " Repeat plugin mappings with dot
-    Plug 'tpope/vim-speeddating'      , { 'for': 'org' } " De/Increment dates, times and more
-    Plug 'chrisbra/NrrwRgn'           , { 'for': 'org' } " Emulation of Emacs' Narrow Region feature
-    Plug 'vim-scripts/SyntaxRange'    , { 'for': 'org' } " Define a different filetype on regions of a buffer
-    Plug 'mattn/calendar-vim'         , { 'for': 'org' } " Calendar window
-    Plug 'dhruvasagar/vim-table-mode' , { 'for': 'org' } " Automatic table creator & formatter
-    Plug 'caianrais/vim-orgmode'      , { 'for': 'org' } " Text outlining and task management based on Emacs' Org-Mode
 
 
 " }}}
@@ -126,21 +111,11 @@ call plug#begin('~/.vim/plugged')
 " WEB {{{
 
 
-    Plug 'elzr/vim-json'          " A better JSON for Vim
-    Plug 'othree/html5.vim'       " Omnicomplete for HTML5
-    Plug 'hail2u/vim-css3-syntax' " CSS syntax support
-    Plug 'nikvdp/ejs-syntax'      " EJS syntax support
+    Plug 'elzr/vim-json'                " A better JSON for Vim
+    Plug 'othree/html5.vim'             " Omnicomplete for HTML5
+    Plug 'hail2u/vim-css3-syntax'       " CSS syntax support
+    Plug 'nikvdp/ejs-syntax'            " EJS syntax support
     Plug 'jelera/vim-javascript-syntax' " JavaScript syntax support
-
-
-" }}}
-" TO BE TESTED {{{
-
-
-    " Plug 'lambdalisue/vim-gista'          " ...
-    " Plug 'terryma/vim-expand-region'      " ...
-    " Plug 'airodactyl/neovim-ranger'       " ...
-    " Plug 'Shougo/neosnippet.vim'
 
 
 " }}}
