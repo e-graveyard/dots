@@ -168,5 +168,13 @@ endif
     " Ignores Python's byte-compiled files in NERDTree
     let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 
+    " Git indicators
+    let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "!",
+    \ "Staged"    : "+",
+    \ "Untracked" : "?",
+    \ "Dirty"     : "x",
+    \ }
+
 
 " }}}
