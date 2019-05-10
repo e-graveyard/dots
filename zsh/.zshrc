@@ -6,41 +6,14 @@
 #  /\_\ /\____\/\____/ \ \_\ \_\ \_\\ \____\
 #  \/_/ \/____/\/___/   \/_/\/_/\/_/ \/____/
 #
-# author : cai <caianrais@pm.me>
-#   code : github.com/caianrais/dots
+# author : cai <hi@caian.org>
+#   code : github.com/caian-org/dots
 
 
-# SHEXT AUTOLOAD {{{
-
-    SHELL_EXTERNALS=(
-        '._alias.sh'
-        '._env.sh'
-        '._path.sh'
-        '._func.sh'
-    )
-
-    fetch_shell_externals()
-    {
-        for ext in "${SHELL_EXTERNALS[@]}"; do
-            local ext_dest="${HOME}/${ext}"
-
-            if ! [ -f "$ext_dest" ]; then
-                curl "https://raw.githubusercontent.com/caianrais/dots/master/shext/${ext}" \
-                    --output $ext_dest --silent
-            fi
-
-            source $ext_dest
-        done
-    }
-
-    fetch_shell_externals
-
-# }}}
 # GENERAL DEFINITIONS {{{
 
-
     # define zsh as hyphen insensitive
-    HYPHEN_INSENSITIVE="false"
+    HYPHEN_INSENSITIVE="true"
 
     # define zsh as case insensitive
     CASE_SENSITIVE="false"
@@ -51,27 +24,18 @@
     # enable colors in ls
     DISABLE_LS_COLORS="false"
 
-    # set vim as default editor
+    # set neovim as default editor
     export EDITOR="nvim"
-
-    # forces ranger to use my own conf
-    export RANGER_LOAD_DEFAULT_RC=false
 
     # wow, much colors, so beautiful, 10/10
     # export TERM="xterm-256color"
-    export TERM=xterm-256color
+    export TERM="xterm-256color"
 
     # used by `figlet` to search for font files
-    export FIGLET_FONTDIR=$HOME/.figlet
-
-    # powerlevel awesome fonts
-    # github: gabrielelana/awesome-terminal-fonts
-    source $HOME/.fonts/*.sh
-
+    export FIGLET_FONTDIR="${HOME}/.figlet"
 
 # }}}
 # POWERLEVEL9K {{{
-
 
     # sets the way pl9k handles the font
     POWERLEVEL9K_MODE="awesome-fontconfig"
@@ -145,31 +109,10 @@
     # right elements/segments
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time vcs time vi_mode)
 
-
-# }}}
-# LESS COLOR SETTINGS {{{
-
-
-    export LESS_TERMCAP_mb=$(tput bold; tput setaf 1)
-    export LESS_TERMCAP_md=$(tput bold; tput setaf 4)
-    export LESS_TERMCAP_me=$(tput sgr0)
-    export LESS_TERMCAP_so=$(tput bold; tput setaf 7; tput setab 2)
-    export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-    export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7)
-    export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
-    export LESS_TERMCAP_mr=$(tput rev)
-    export LESS_TERMCAP_mh=$(tput dim)
-    export LESS_TERMCAP_ZN=$(tput ssubm)
-    export LESS_TERMCAP_ZV=$(tput rsubm)
-    export LESS_TERMCAP_ZO=$(tput ssupm)
-    export LESS_TERMCAP_ZW=$(tput rsupm)
-
-
 # }}}
 # OH-MY-ZSH {{{
 
-
-    export ZSH=$HOME/.oh-my-zsh
+    export ZSH="${HOME}/.oh-my-zsh"
 
     # update frequency
     export UPDATE_ZSH_DAYS=7
@@ -180,25 +123,17 @@
     # plugin definition
     plugins=(
         git
-        debian
         encode64
-        zsh-autosuggestions
-        zsh-syntax-highlighting
         vi-mode
         urltools
         tmux
         python
         pip
+        zsh-autosuggestions
+        zsh-syntax-highlighting
         )
 
     # source oh-my-zsh
-    source $ZSH/oh-my-zsh.sh
-
+    source "${ZSH}/oh-my-zsh.sh"
 
 # }}}
-
-# loads pywal's colourscheme
-(wal -r -t &)
-
-# required by rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
