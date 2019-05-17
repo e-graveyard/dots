@@ -16,7 +16,6 @@
 
 " NAVIGATION {{{
 
-
     " Up and down by "line on screen" rather than "physical line"
     nmap <C-j> gj
     nmap <C-k> gk
@@ -30,10 +29,8 @@
     " Copy selected text to system clipboard (requires gvim)
     vnoremap <C-c> "+y
 
-
 " }}}
 " BUFFERS {{{
-
 
     " New empty horizontal
     nnoremap <Leader>bh :new<CR>
@@ -52,10 +49,8 @@
     nnoremap <C-l> :bn<CR>
     inoremap <C-l> <Esc>:bn<CR>
 
-
 " }}}
 " WINDOWS {{{
-
 
     " Move around windows more easily
     nnoremap <C-Up> :wincmd k<CR>
@@ -70,20 +65,16 @@
     nnoremap <C-Right> :wincmd l<CR>
     inoremap <C-Right> <C-o>:wincmd l<CR>
 
-
 " }}}
 " ALIASES {{{
-
 
     " Prevents Vim to yell at me when I use capitalized commands
     command W w
     command Q q
     command WQ wq
 
-
 " }}}
 " PLUGINS {{{
-
 
     " Open NERDTree
     nnoremap <F3> :NERDTreeToggle<CR>
@@ -100,23 +91,21 @@
     " Close VIM when the only window left is NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
 " }}}
 " FOLDING {{{
-
 
     " Folding with markers ({{{ & }}})
     autocmd FileType vim set foldmethod=marker
     autocmd FileType zsh set foldmethod=marker
+    autocmd FileType tmux set foldmethod=marker
 
     " Toggles folding with <Space>
     autocmd FileType vim nnoremap <Space> za
     autocmd FileType zsh nnoremap <Space> za
-
+    autocmd FileType tmux nnoremap <Space> za
 
 " }}}
 " MISC {{{
-
 
     " Toggles search highlighting
     nnoremap <Leader>s :set hlsearch!<CR>
@@ -126,9 +115,5 @@
 
     " Disables automatic commenting on newline
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-    " Sets `troll` filetype for files with `troll` extension
-    autocmd BufRead,BufNewFile *.troll set filetype=troll
-
 
 " }}}
