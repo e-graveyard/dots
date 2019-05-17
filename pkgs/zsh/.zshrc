@@ -10,7 +10,7 @@
 #   code : github.com/caian-org/dots
 
 
-# GENERAL DEFINITIONS {{{
+# GENERAL {{{
 
     # define zsh as hyphen insensitive
     HYPHEN_INSENSITIVE="true"
@@ -28,11 +28,7 @@
     export EDITOR="nvim"
 
     # wow, much colors, so beautiful, 10/10
-    # export TERM="xterm-256color"
     export TERM="xterm-256color"
-
-    # used by `figlet` to search for font files
-    export FIGLET_FONTDIR="${HOME}/.figlet"
 
 # }}}
 # POWERLEVEL9K {{{
@@ -135,5 +131,17 @@
 
     # source oh-my-zsh
     source "${ZSH}/oh-my-zsh.sh"
+
+# }}}
+# SOURCES {{{
+
+    # environment variables
+    source "$HOME/._env.sh"
+
+    # locations in PATH
+    source "$HOME/._path.sh"
+
+    # aliases
+    source "$HOME/._alias.sh"
 
 # }}}
