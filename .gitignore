@@ -1,0 +1,4 @@
+# vim: plugins and undo history
+pkgs/vim/.vim/autoload
+pkgs/vim/.vim/plugged
+pkgs/vim/.vim/undo
