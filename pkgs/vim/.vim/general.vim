@@ -5,9 +5,8 @@
 "  /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 "  \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 "
-" author: cai <caianrais@pm.me>
-"   code: github.com/caianrais/dots
-
+" author: cai <hi@caian.org>
+"   code: github.com/caian-org/dots
 
 
 " ===================
@@ -19,23 +18,22 @@
 " Ref: <http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm>
 "      <https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode>
 
+    let mapleader=','       " Remaps the 'leader' key
+    let maplocalleader='\'  " Remaps the 'local leader' key
 
-    let mapleader=','              " Remaps the 'leader' key
-    let maplocalleader='\'         " Remaps the 'local leader' key
-
-    set showcmd                    " Shows the entered command & number of selected lines
-    set noswapfile                 " Disables swap files
-    set undofile                   " Enables persistent undo
-    set undodir=~/.vim/undo        " Undo history location (this dir MUST exist)
-    set undolevels=2000            " Max number of  saved undos
-    set undoreload=25000           " Max number of lines to be saved
-    set ttimeoutlen=10             " Reduces the delay when changing modes
-    set clipboard=unnamed          " Uses the system clipboard
-    set mouse=a                    " Mouse scrolling instead of history buffer inside Tmux
-    set backspace=indent,eol,start " Makes BS (BackSpace) work as expected
-    set ignorecase                 " Ignore case in search patterns
-    set confirm                    " Use dialog when confirming an operation (such as :q)
-    set hidden                     " Hide 'No write since last change' when changing buffers
+    set showcmd             " Shows the entered command & number of selected lines
+    set noswapfile          " Disables swap files
+    set undofile            " Enables persistent undo
+    set undodir=~/.vim/undo " Undo history location (this dir MUST exist)
+    set undolevels=2000     " Max number of saved undos
+    set undoreload=25000    " Max number of lines to be saved
+    set ttimeoutlen=10      " Reduces the delay when changing modes
+    set clipboard=unnamed   " Uses the system clipboard
+    set mouse=a             " Mouse scrolling instead of history buffer inside Tmux
+    set ignorecase          " Ignore case in search patterns
+    set confirm             " Use dialog when confirming an operation (such as :q)
+    set hidden              " Hide 'No write since last change' when changing buffers
+    set backspace=indent,eol,start " Make backspace work as expected
 
     " When outside of neovim...
     if !has("nvim")
@@ -43,15 +41,12 @@
         set lazyredraw " Don't redraw the screen while executing macros
     endif
 
-
 " }}}
 " VISUAL {{{
 
 " Ref: <http://vim.wikia.com/wiki/Automatic_word_wrapping>
 
-
     syntax on                 " Enables syntax highlight
-
     set number                " Shows line numbers
     set relativenumber        " Uses relative numbering
     set hlsearch              " Highlights search results
@@ -81,6 +76,5 @@
     hi VertSplit cterm=NONE   " Supress the current colour scheme in vertical split line
     hi VertSplit ctermfg=237  " Sets the vertical line foreground color to 237
     hi VertSplit ctermbg=NONE " Nulls the vertical line background color
-
 
 " }}}
