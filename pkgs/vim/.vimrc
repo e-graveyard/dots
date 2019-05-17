@@ -5,9 +5,8 @@
 "  /\_\\ \___/  \ \_\ \_\ \_\ \_\ \_\\ \____\
 "  \/_/ \/__/    \/_/\/_/\/_/\/_/\/_/ \/____/
 "
-" author: cai <caianrais@pm.me>
-"   code: github.com/caianrais/dots
-
+" author: cai <hi@caian.org>
+"   code: github.com/caian-org/dots
 
 
 " ===========
@@ -17,7 +16,6 @@
 set nocompatible
 
 " DIRECTORY {{{
-
 
     if !isdirectory($HOME . "/.vim")
         call mkdir($HOME . "/.vim", "", 0700)
@@ -30,10 +28,8 @@ set nocompatible
 
     set runtimepath+=~/.vim/
 
-
 " }}}
 " SPAWNER {{{
-
 
     let sources = [
                 \ 'plugs',
@@ -53,6 +49,5 @@ set nocompatible
 
         execute 'source' filepath
     endfor
-
 
 " }}}
