@@ -47,10 +47,6 @@
     POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
     POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
 
-    # "history" segment
-    POWERLEVEL9K_HISTORY_BACKGROUND="clear"
-    POWERLEVEL9K_HISTORY_FOREGROUND="cyan"
-
     # "dir_writable" segment
     POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
     POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="yellow"
@@ -67,10 +63,6 @@
     POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="clear"
     POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="green"
 
-    # "time" segment
-    POWERLEVEL9K_TIME_BACKGROUND="clear"
-    POWERLEVEL9K_TIME_FOREGROUND="cyan"
-
     # "vcs" segment (git)
     POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
     POWERLEVEL9K_VCS_CLEAN_BACKGROUND="clear"
@@ -85,12 +77,8 @@
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
 
-    # "vi_mode" segment
-    POWERLEVEL9K_VI_INSERT_MODE_STRING="-- INSERT --"
-    POWERLEVEL9K_VI_COMMAND_MODE_STRING="-- NORMAL --"
-
     # print execution_time if threshold >= 3
-    POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
+    POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
 
     # shorten path
     POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
@@ -100,10 +88,10 @@
     POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
     # left elements/segments
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history status_joined dir_writable dir)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir_writable dir)
 
     # right elements/segments
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time vcs time vi_mode)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time vcs)
 
 # }}}
 # OH-MY-ZSH {{{
@@ -114,7 +102,7 @@
     export UPDATE_ZSH_DAYS=7
 
     # theme definition
-    ZSH_THEME="powerlevel9k/powerlevel9k"
+    ZSH_THEME="powerlevel10k/powerlevel10k"
 
     # plugin definition
     plugins=(
