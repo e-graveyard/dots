@@ -44,7 +44,7 @@ set nocompatible
     for source in sources
         let filename = expand(source . '.vim')
         let filepath = expand($HOME . '/.vim/' . filename)
-        let remote = expand('https://raw.githubusercontent.com/caianrais/dots/master/vim/.vim/' . filename)
+        let remote = expand('https://raw.githubusercontent.com/caian-org/dots/master/pkgs/vim/.vim/' . filename)
 
         if !filereadable(filepath) || empty(glob(filepath))
             execute 'silent !curl -fLo ' . filepath . ' ' . remote
