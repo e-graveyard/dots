@@ -196,8 +196,8 @@ endif
 " Ref: <http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm>
 "      <https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode>
 
-    let mapleader=','       " Remaps the 'leader' key
-    let maplocalleader='\'  " Remaps the 'local leader' key
+    let mapleader='\'       " Remaps the 'leader' key
+    let maplocalleader=','  " Remaps the 'local leader' key
 
     set showcmd             " Shows the entered command & number of selected lines
     set noswapfile          " Disables swap files
@@ -281,13 +281,13 @@ endif
 " BUFFERS {{{
 
     " New empty horizontal
-    nnoremap <Leader>bh :new<CR>
+    nnoremap <LocalLeader>bh :new<CR>
 
     " New empty vertical
-    nnoremap <Leader>bv :vnew<CR>
+    nnoremap <LocalLeader>bv :vnew<CR>
 
     " List all
-    nnoremap <Leader>bl :ls<CR>
+    nnoremap <LocalLeader>bl :ls<CR>
 
     " Go to previous
     nnoremap <C-h> :bp<CR>
@@ -356,7 +356,7 @@ endif
 " MISC {{{
 
     " Toggles search highlighting
-    nnoremap <Leader>s :set hlsearch!<CR>
+    nnoremap <LocalLeader>s :set hlsearch!<CR>
 
     " Automatically deletes all tralling whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
