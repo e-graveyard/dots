@@ -176,6 +176,8 @@
     alias gmus='cd $HOME/Music'
     alias gbin='cd $HOME/bin'
 
+    alias gwor='cd $HOME/work'
+
     # common actions
     alias uzc='source $HOME/.zshrc'
 
