@@ -96,16 +96,18 @@ call plug#begin('~/.vim/plugged')
 " Requires: <https://github.com/derekparker/delve>
 "           <https://github.com/universal-ctags/ctags>
 
-    Plug 'majutsushi/tagbar'          " Class outline viewer
-    Plug 'sheerun/vim-polyglot'       " Language collection pack
-    Plug 'fatih/vim-go'               " IDE-like tools for Golang
-    Plug 'Shougo/neosnippet.vim'      " Snippet support
-    Plug 'Shougo/neosnippet-snippets' " Snippet source
+    Plug 'jreybert/vimagit'             " ...
+    Plug 'ludovicchabant/vim-gutentags' " ...
+    Plug 'majutsushi/tagbar'            " Class outline viewer
+    Plug 'sheerun/vim-polyglot'         " Language collection pack
+    Plug 'fatih/vim-go'                 " IDE-like tools for Golang
+    Plug 'Shougo/neosnippet.vim'        " Snippet support
+    Plug 'Shougo/neosnippet-snippets'   " Snippet source
 
 " }}}
 " VCS {{{
 
-    Plug 'airblade/vim-gitgutter'      " Shows git diff in the gutter
+    Plug 'mhinz/vim-signify'           " Shows git diff in the gutter
     Plug 'Xuyuanp/nerdtree-git-plugin' " Git status flags in NERDTree
 
 " }}}
@@ -211,6 +213,8 @@ endif
     set ignorecase          " Ignore case in search patterns
     set confirm             " Use dialog when confirming an operation (such as :q)
     set hidden              " Hide 'No write since last change' when changing buffers
+    set splitbelow          " Horizontal splits open at the bottom
+    set splitright          " Vertical splits open at the right
     set backspace=indent,eol,start " Make backspace work as expected
 
     " When outside of neovim...
@@ -262,6 +266,15 @@ endif
 " COMMANDS & REMAPS
 " =================
 
+" TERMINAL {{{
+
+    " Open terminal
+    nnoremap <LocalLeader>t :terminal<CR>
+
+    " Escape to normal mode inside a terminal buffer more easily
+    tnoremap <Esc> <C-\><C-n>
+
+" }}}
 " NAVIGATION {{{
 
     " Up and down by "line on screen" rather than "physical line"
@@ -286,16 +299,35 @@ endif
     " New empty vertical
     nnoremap <LocalLeader>bv :vnew<CR>
 
+    " Close the active buffer
+    nnoremap <LocalLeader>bd :bd<CR>
+
     " List all
     nnoremap <LocalLeader>bl :ls<CR>
 
     " Go to previous
-    nnoremap <C-h> :bp<CR>
-    inoremap <C-h> <Esc>:bp<CR>
+    nnoremap <C-o> :bp<CR>
+    inoremap <C-o> <Esc>:bp<CR>
 
     " Go to next
-    nnoremap <C-l> :bn<CR>
-    inoremap <C-l> <Esc>:bn<CR>
+    nnoremap <C-p> :bn<CR>
+    inoremap <C-p> <Esc>:bn<CR>
+
+    " Decrease vertical split height
+    nnoremap <C-h> :vertical resize -1<CR>
+    inoremap <C-h> <ESC>:vertical resize -1<CR>a
+
+    " Increase vertical split width
+    nnoremap <C-l> :vertical resize +1<CR>
+    inoremap <C-l> <ESC>:vertical resize +1<CR>a
+
+    " Decrease horizontal split height
+    nnoremap <C-j> :resize +1<CR>
+    inoremap <C-j> <ESC>:resize +1<CR>a
+
+    " Increase horizontal split width
+    nnoremap <C-k> :resize -1<CR>
+    inoremap <C-k> <ESC>:resize -1<CR>a
 
 " }}}
 " WINDOWS {{{
