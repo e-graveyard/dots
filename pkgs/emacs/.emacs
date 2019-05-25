@@ -4,15 +4,13 @@
 ;  /\_\ \____\ \_\ \_\ \_\ \__/.\_\ \____\/\____/
 ;  \/_/\/____/\/_/\/_/\/_/\/__/\/_/\/____/\/___/
 ;
-; author: cai <caianrais@protonmail.com>
-;   code: github.com/caianrais/init
-
+; author: cai <hi@caian.org>
+;   code: github.com/caian-org/dots
 
 
 ; list of used packages
 (setq package-list
-      '(evil org-plus-contrib powerline powerline-evil dashboard
-             xresources-theme linum-relative))
+      '(evil org-plus-contrib powerline powerline-evil))
 
 ; list of package repositories
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
@@ -36,7 +34,6 @@
 (require 'evil)
 (require 'powerline)
 (require 'powerline-evil)
-(require 'linum-relative)
 
 ; initializes evil mode
 (evil-mode 1)
@@ -49,6 +46,13 @@
 
 ; disables the tool bar
 (tool-bar-mode -1)
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+(setq scroll-step            1
+      scroll-margin          25
+      scroll-conservatively  10000)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
