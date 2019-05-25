@@ -103,6 +103,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'                 " IDE-like tools for Golang
     Plug 'Shougo/neosnippet.vim'        " Snippet support
     Plug 'Shougo/neosnippet-snippets'   " Snippet source
+    Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " }}}
 " VCS {{{
@@ -185,6 +186,27 @@ endif
                     \ 'jsx',
                     \ 'javascript.jsx',
                     \ ]
+
+" }}}
+
+
+" ================
+" CUSTOM FUNCTIONS
+" ================
+
+" ToggleCursorInTheMiddle {{{
+
+    let g:cursor_in_the_middle = 1
+
+    fun ToggleCursorInTheMiddle()
+        if g:cursor_in_the_middle
+            set scrolloff=0
+            let g:cursor_in_the_middle = 0
+        else
+            set scrolloff=999
+            let g:cursor_in_the_middle = 1
+        endif
+    endfun
 
 " }}}
 
@@ -371,6 +393,11 @@ endif
     " Close VIM when the only window left is NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+    autocmd FileType javascript.jsx nnoremap <LocalLeader>jj :TernDef<CR>
+    autocmd FileType javascript.jsx nnoremap <LocalLeader>jd :TernDoc<CR>
+    autocmd FileType javascript.jsx nnoremap <LocalLeader>jt :TernType<CR>
+    autocmd FileType javascript.jsx nnoremap <LocalLeader>jr :TernRename<CR>
+
 " }}}
 " FOLDING {{{
 
@@ -386,6 +413,9 @@ endif
 
 " }}}
 " MISC {{{
+
+    " Toggle between cursor at the middle or "normal"
+    nnoremap <LocalLeader>c :call ToggleCursorInTheMiddle()<CR>
 
     " Toggles search highlighting
     nnoremap <LocalLeader>s :set hlsearch!<CR>
