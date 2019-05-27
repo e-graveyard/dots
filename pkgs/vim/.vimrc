@@ -103,6 +103,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'                 " IDE-like tools for Golang
     Plug 'Shougo/neosnippet.vim'        " Snippet support
     Plug 'Shougo/neosnippet-snippets'   " Snippet source
+    Plug 'davidhalter/jedi-vim'         " ...
+
+    " ...
     Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " }}}
@@ -145,6 +148,12 @@ endif
 
 " ALE {{{
 
+    let g:ale_linters = {
+    \    'python': ['bandit', 'prospector', 'pycodestyle', 'pydocstyle'],
+    \    'javascript': ['eslint'],
+    \}
+
+    let g:ale_sign_column_always = 1
     let g:ale_lint_on_text_changed = 'never'
     let b:ale_warn_about_trailing_whitespace = 0
 
@@ -390,9 +399,7 @@ endif
     nnoremap <F9> :Goyo 90<CR>
     inoremap <F9> <Esc>:Goyo 90<CR>a
 
-    " Close VIM when the only window left is NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+    " ...
     autocmd FileType javascript.jsx nnoremap <LocalLeader>jj :TernDef<CR>
     autocmd FileType javascript.jsx nnoremap <LocalLeader>jd :TernDoc<CR>
     autocmd FileType javascript.jsx nnoremap <LocalLeader>jt :TernType<CR>
