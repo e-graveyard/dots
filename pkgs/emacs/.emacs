@@ -39,7 +39,7 @@
 (evil-mode 1)
 
 ; uses the default theme in powerline
-(powerline-default-theme)
+(powerline-evil-center-color-theme)
 
 ; disables the menu bar
 (menu-bar-mode -1)
