@@ -77,6 +77,10 @@
     POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
     POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
 
+    # "virtualenv" segment
+    POWERLEVEL9K_VIRTUALENV_BACKGROUND="clear"
+    POWERLEVEL9K_VIRTUALENV_FOREGROUND="green"
+
     # print execution_time if threshold >= 3
     POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
 
@@ -91,7 +95,7 @@
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir_writable dir)
 
     # right elements/segments
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time vcs)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time virtualenv vcs)
 
 # }}}
 # OH-MY-ZSH {{{
@@ -119,6 +123,11 @@
 
     # source oh-my-zsh
     source "${ZSH}/oh-my-zsh.sh"
+
+# }}}
+# PROGRAMS {{{
+
+    VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # }}}
 # ENVIRONMENT {{{
@@ -163,6 +172,9 @@
     alias _zsh='v $DOTS_DIR/zsh/.zshrc'
     alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
     alias _emacs='v $DOTS_DIR/emacs/.emacs'
+
+    # notes
+    alias notes='e $HOME/Projs/notes.org/notes/c.org'
 
     # common directories
     alias gmed='cd /run/media/$USER'
