@@ -14,4 +14,4 @@ super + k
     keepassxc
 
 super + shift + q
-    printf "" | dmenu -p "Input text: " | gqr -s -x
+    printf "" | rofi -dmenu -p "Input text" -lines 0 | gqr -s -x
