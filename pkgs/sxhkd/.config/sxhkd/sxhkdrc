@@ -12,3 +12,6 @@ super + shift + c
 
 super + k
     keepassxc
+
+super + shift + q
+    printf "" | dmenu -p "Input text: " | gqr -s -x
