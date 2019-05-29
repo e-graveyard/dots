@@ -3,5 +3,12 @@ pkgs/vim/.vim/autoload
 pkgs/vim/.vim/plugged
 pkgs/vim/.vim/undo
 
+# mpd
+pkgs/mpd/.config/mpd/mpd.db
+pkgs/mpd/.config/mpd/mpd.log
+pkgs/mpd/.config/mpd/mpd.pid
+pkgs/mpd/.config/mpd/mpd.state
+pkgs/mpd/.config/mpd/sticker.sql
+
 # ctags
 tags
