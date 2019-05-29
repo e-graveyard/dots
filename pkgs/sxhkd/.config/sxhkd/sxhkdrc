@@ -1,0 +1,14 @@
+super + Return
+    kstart5 --fullscreen alacritty
+
+super + {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    qdbus org.kde.KWin /KWin setCurrentDesktop {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+super + c
+    chromium
+
+super + shift + c
+    chromium --incognito
+
+super + k
+    keepassxc
