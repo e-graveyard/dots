@@ -1,0 +1,13 @@
+[colors]
+
+background = rgba(0,0,0,0.85)
+
+
+[options]
+
+fullscreen        = true
+allow_bold        = true
+mouse_autohide    = true
+bold_is_bright    = true
+cell_height_scale = 1.2
+font              = xos4 Terminus 14
