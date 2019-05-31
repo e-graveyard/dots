@@ -100,7 +100,7 @@
 # }}}
 # OH-MY-ZSH {{{
 
-    export ZSH="${HOME}/.oh-my-zsh"
+    export ZSH="$HOME/.oh-my-zsh"
 
     # update frequency
     export UPDATE_ZSH_DAYS=7
@@ -122,7 +122,7 @@
         )
 
     # source oh-my-zsh
-    source "${ZSH}/oh-my-zsh.sh"
+    source "$ZSH/oh-my-zsh.sh"
 
 # }}}
 # PROGRAMS {{{
@@ -136,6 +136,23 @@
     export PROJ_DIR="/run/media/$USER/warehouse/git"
     export DOTS_DIR="$HOME/dots/pkgs"
     export VIM_PROF="$DOTS_DIR/vim"
+
+    # For some bizarre reason, some KDE variables are not exported inside tmux
+    # sessions. "xdg-open" is one the programs that relies on that variables
+    # (namely, the "KDE_SESSION_VERSION") for working properly. When
+    # KDE_SESSION_VERSION is not defined, xdg-open is unable to open URLs,
+    # therefore commands like "gx" on vim doesn't work at all.
+
+    # This is definitely a tmux issue, since when not using it, everything goes
+    # as expected (independently of the terminal emulator used).
+
+    # About KDE-specific environment varibles:
+    # <https://userbase.kde.org/KDE_System_Administration/Environment_Variables>
+
+    # The bug thread that saved me:
+    # <https://bugs.launchpad.net/ubuntu/+source/xdg-utils/+bug/545044>
+    export KDE_FULL_SESSION=true
+    export KDE_SESSION_VERSION=5
 
 # }}}
 # PATH {{{
@@ -170,6 +187,7 @@
     alias _dots='v $DOTS_DIR'
     alias _vim='v $VIM_PROF/.vimrc'
     alias _zsh='v $DOTS_DIR/zsh/.zshrc'
+    alias _term='v $DOTS_DIR/alacritty/.config/alacritty/alacritty.yml'
     alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
     alias _emacs='v $DOTS_DIR/emacs/.emacs'
 
@@ -199,7 +217,34 @@
     # create a dir (with parents) and cd into them
     m() {
         mkdir -p -- "$1" &&
-            cd -P -- "$1"
+            cd -P -- "$1" || return
+    }
+
+    # change wallpaper for all workspaces
+    chwp() {
+        dbus-send \
+            --session \
+            --dest=org.kde.plasmashell \
+            --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript "string:
+            var Desktops = desktops();
+            for (i=0;i<Desktops.length;i++) {
+                    d = Desktops[i];
+                    d.wallpaperPlugin = 'org.kde.image';
+                    d.currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');
+                    d.writeConfig('Image', 'file://$1');
+            }"
+    }
+
+    # set the theme from an image
+    chtm() {
+        wal -n -i "$@"
+        chwp "$(cat "$HOME/.cache/wal/wal")"
+        cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
     }
 
 #}}}
+# THEME {{{
+
+    (cat ~/.cache/wal/sequences &)
+
+# }}}
