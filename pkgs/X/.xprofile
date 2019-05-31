@@ -1,2 +1,2 @@
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+source "$HOME/.zshrc"
 nohup sxhkd -r ~/sxhkd.log & disown
