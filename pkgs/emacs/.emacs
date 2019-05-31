@@ -10,7 +10,8 @@
 
 ; list of used packages
 (setq package-list
-      '(evil org-plus-contrib powerline powerline-evil))
+      '(evil org-plus-contrib powerline powerline-evil
+        xresources-theme org-bullets))
 
 ; list of package repositories
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
@@ -34,6 +35,29 @@
 (require 'evil)
 (require 'powerline)
 (require 'powerline-evil)
+(require 'org-bullets)
+
+; set the theme
+(require 'xresources-theme)
+
+; enable the org-bullets package on org-mode
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+; add left and right margins on the buffer
+(setq scroll-margin 6)
+
+; do not show the truncate line symbol ($)
+(setq-default truncate-lines t)
+
+; do not show the startup page
+(setq inhibit-startup-screen t)
+
+; set the font type and size
+(set-frame-font "xos4 Terminus 14" nil t)
+
+; set transparency (85%)
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
 
 ; initializes evil mode
 (evil-mode 1)
@@ -46,6 +70,9 @@
 
 ; disables the tool bar
 (tool-bar-mode -1)
+
+; disable the scroll bar
+(scroll-bar-mode -1)
 
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
