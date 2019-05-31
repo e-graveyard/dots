@@ -10,5 +10,8 @@ pkgs/mpd/.config/mpd/mpd.pid
 pkgs/mpd/.config/mpd/mpd.state
 pkgs/mpd/.config/mpd/sticker.sql
 
+# ncmpcpp
+pkgs/ncmpcpp/.config/ncmpcpp/error.log
+
 # ctags
 tags
