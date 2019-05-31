@@ -263,9 +263,9 @@ endif
     set number                " Shows line numbers
     set relativenumber        " Uses relative numbering
     set hlsearch              " Highlights search results
-    set expandtab             " Spaces as [TAB]s
+    set expandtab             " Expand TABs to spaces
     set tabstop=4             " Set TAB as 4 spaces wide
-    set shiftwidth=4          " Shift 4 spaces wide in reindent operations
+    set shiftwidth=4          " Shift 4 spaces wide when identing/dedenting
     set scrolloff=999         " Cursor line in the middle of screen
     set fillchars=vert:│      " Makes a continuous line with a special UTF-8 char
     set laststatus=2          " Always display the status line
