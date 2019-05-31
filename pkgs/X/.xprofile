@@ -1,2 +1,4 @@
 source "$HOME/.zshrc"
-nohup sxhkd -r ~/sxhkd.log & disown
+
+nohup mpd & disown
+nohup sxhkd & disown
