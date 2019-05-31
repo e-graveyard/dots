@@ -1,5 +1,5 @@
 super + Return
-    kstart5 --fullscreen alacritty
+    kstart5 --fullscreen termite
 
 super + {1, 2, 3, 4, 5, 6, 7, 8, 9}
     qdbus org.kde.KWin /KWin setCurrentDesktop {1, 2, 3, 4, 5, 6, 7, 8, 9}
