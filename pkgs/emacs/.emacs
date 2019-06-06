@@ -8,6 +8,9 @@
 ;   code: github.com/caian-org/dots
 
 
+; my lisp functions & stuff
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ; list of used packages
 (setq package-list
       '(evil org-plus-contrib powerline powerline-evil
@@ -74,24 +77,24 @@
 ; disable the scroll bar
 (scroll-bar-mode -1)
 
+; spaces > tabs
+(setq-default indent-tabs-mode nil)
+
+; add spacing between lines
+(setq-default line-spacing 5)
+
+; always show line numbers
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
+; scroll smoothly
 (setq scroll-step            1
       scroll-margin          25
       scroll-conservatively  10000)
 
+; "org-bullet" bullet characters
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (linum-relative xresources-theme dashboard powerline-evil powerline org-plus-contrib evil))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(org-bullets-bullet-list (quote ("▶" "✸" "✚" "➔" "◇"))))
+
+; open my notes on startup
+(find-file "~/Projs/notes.org/notes/c.org")
