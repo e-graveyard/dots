@@ -235,6 +235,8 @@
             }"
     }
 
+    # concatenate my Xresources and pywal's generated colorscheme and update
+    # the database
     rlxdb() {
         cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
     }
