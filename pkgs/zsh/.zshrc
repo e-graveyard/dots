@@ -187,7 +187,7 @@
     alias _dots='v $DOTS_DIR'
     alias _vim='v $VIM_PROF/.vimrc'
     alias _zsh='v $DOTS_DIR/zsh/.zshrc'
-    alias _term='v $DOTS_DIR/alacritty/.config/alacritty/alacritty.yml'
+    alias _term='v $DOTS_DIR/termite/.config/termite/config'
     alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
     alias _emacs='v $DOTS_DIR/emacs/.emacs'
 
@@ -235,11 +235,15 @@
             }"
     }
 
+    rlxdb() {
+        cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
+    }
+
     # set the theme from an image
     chtm() {
         wal -n -i "$@"
         chwp "$(cat "$HOME/.cache/wal/wal")"
-        cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
+        rlxdb
     }
 
 #}}}
