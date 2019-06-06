@@ -1,4 +1,6 @@
 source "$HOME/.zshrc"
 
+rlxdb
+
 nohup mpd & disown
 nohup sxhkd & disown
