@@ -8,10 +8,10 @@ super + e
     emacs --fullscreen
 
 super + f
-    firefox
+    kstart5 --fullscreen firefox
 
-super + shift + f
-    firefox --private-window
+super + g
+    kstart5 --fullscreen google-chrome-stable
 
 super + k
     keepassxc
