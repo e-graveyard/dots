@@ -220,6 +220,15 @@
             cd -P -- "$1" || return
     }
 
+    # download a mp3 from youtube (w/ the best quality possible)
+    dlyt() {
+        youtube-dl \
+            --extract-audio \
+            --audio-format mp3 \
+            --audio-quality 0 \
+            "https://www.youtube.com/watch?v=$1"
+    }
+
     # change wallpaper for all workspaces
     chwp() {
         dbus-send \
