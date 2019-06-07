@@ -206,6 +206,7 @@
     alias gmus='cd $HOME/Music'
     alias gbin='cd $HOME/bin'
 
+    alias gdot='cd $DOTS_DIR'
     alias gwor='cd $HOME/work'
 
     # common actions
