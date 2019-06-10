@@ -106,7 +106,7 @@
     export UPDATE_ZSH_DAYS=7
 
     # theme definition
-    ZSH_THEME="powerlevel10k/powerlevel10k"
+    ZSH_THEME="powerlevel9k/powerlevel9k"
 
     # plugin definition
     plugins=(
