@@ -1,6 +1,5 @@
-source "$HOME/.zshrc"
+USER_BIN="$HOME/bin:$HOME/.local/bin"
+export PATH="$PATH:$USER_BIN"
 
-rlxdb
-
-nohup mpd & disown
-nohup sxhkd & disown
+mpd &
+sxhkd &
