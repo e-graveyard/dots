@@ -190,6 +190,7 @@
     alias _term='v $DOTS_DIR/termite/.config/termite/config'
     alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
     alias _emacs='v $DOTS_DIR/emacs/.emacs'
+    alias _maps='v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc'
 
     # notes
     alias notes='e $HOME/Projs/notes.org/notes/c.org'
@@ -221,8 +222,14 @@
             cd -P -- "$1" || return
     }
 
+    # concatenate my Xresources and pywal's generated colorscheme and update
+    # the database
+    reload_xrdb() {
+        cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
+    }
+
     # download a mp3 from youtube (w/ the best quality possible)
-    dlyt() {
+    ytd() {
         youtube-dl \
             --extract-audio \
             --audio-format mp3 \
@@ -245,17 +252,17 @@
             }"
     }
 
-    # concatenate my Xresources and pywal's generated colorscheme and update
-    # the database
-    rlxdb() {
-        cat "$HOME/.Xresources" "$HOME/.cache/wal/colors.Xresources" | xrdb -
-    }
-
     # set the theme from an image
     chtm() {
         wal -n -i "$@"
         chwp "$(cat "$HOME/.cache/wal/wal")"
-        rlxdb
+        reload_xrdb
+    }
+
+    # reload the xresources database before opening emacs
+    org_mode() {
+        reload_xrdb
+        emacs --fullscreen
     }
 
 #}}}
