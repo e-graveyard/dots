@@ -177,7 +177,6 @@
     alias c="clear"
     alias e="emacs -nw"
     alias v="nvim"
-    alias t='tmux -f $HOME/.config/tmux/.tmux.conf'
     alias l="ls_extended -lhA"
     alias ll="ls_extended -lh"
 

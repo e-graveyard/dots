@@ -4,6 +4,14 @@ m() {
         cd -P -- "$1" || return
 }
 
+t() {
+    if ! tmux ls; then
+        tmux -f "$HOME/.config/tmux/.tmux.conf"
+    else
+        tmux a
+    fi
+}
+
 # concatenate my Xresources and pywal's generated colorscheme and update
 # the database
 reload_xrdb() {
