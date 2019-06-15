@@ -1,4 +1,5 @@
 # vim plugins and undo history
+pkgs/vim/.vim/.netrwhist
 pkgs/vim/.vim/autoload
 pkgs/vim/.vim/plugged
 pkgs/vim/.vim/undo
@@ -13,5 +14,6 @@ pkgs/mpd/.config/mpd/sticker.sql
 # ncmpcpp
 pkgs/ncmpcpp/.config/ncmpcpp/error.log
 
-# ctags
+# misc
 tags
+nohup.out
