@@ -233,6 +233,8 @@ endif
     let maplocalleader=','  " Remaps the 'local leader' key
 
     set showcmd             " Shows the entered command & number of selected lines
+    set modeline            " Enable modeline
+    set modelines=5         " Look for the modeline in the first or last 5 lines
     set noswapfile          " Disables swap files
     set undofile            " Enables persistent undo
     set undodir=~/.vim/undo " Undo history location (this dir MUST exist)
