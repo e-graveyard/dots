@@ -4,6 +4,7 @@ m() {
         cd -P -- "$1" || return
 }
 
+# open a new tmux session; attach if already exists
 t() {
     if ! tmux ls; then
         tmux -f "$HOME/.config/tmux/.tmux.conf"
@@ -53,4 +54,9 @@ chtm() {
 org_mode() {
     reload_xrdb
     nohup emacs --fullscreen & disown
+}
+
+# start a GUI program in fullscreen mode
+fsw() {
+    kstart5 --fullscreen "$@"
 }
