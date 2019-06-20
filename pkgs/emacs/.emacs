@@ -83,10 +83,6 @@
 ; add spacing between lines
 (setq-default line-spacing 5)
 
-; always show line numbers
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
 ; scroll smoothly
 (setq scroll-step            1
       scroll-margin          25
