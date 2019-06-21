@@ -4,6 +4,9 @@ super + Return
 super + {1, 2, 3, 4, 5, 6, 7, 8, 9}
     qdbus org.kde.KWin /KWin setCurrentDesktop {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
+super + shift + {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "$(printf "Window to Desktop %s" {1, 2, 3, 4, 5, 6, 7, 8, 9})"
+
 super + e
     org_mode
 
