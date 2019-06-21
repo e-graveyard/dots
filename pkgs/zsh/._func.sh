@@ -50,10 +50,15 @@ chtm() {
     reload_xrdb
 }
 
+# create a job that doesn't depend on zsh
+mjob() {
+    nohup "$@" & disown
+}
+
 # reload the xresources database before opening emacs
 org_mode() {
     reload_xrdb
-    nohup emacs --fullscreen & disown
+    mjob emacs --fullscreen
 }
 
 # start a GUI program in fullscreen mode
