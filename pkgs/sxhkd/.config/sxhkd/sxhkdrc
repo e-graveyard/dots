@@ -1,14 +1,41 @@
+# ...
 super + Return
     kstart5 --fullscreen termite
 
+# ...
 super + {1, 2, 3, 4, 5, 6, 7, 8, 9}
     qdbus org.kde.KWin /KWin setCurrentDesktop {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
+# ...
 super + shift + {1, 2, 3, 4, 5, 6, 7, 8, 9}
     qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "$(printf "Window to Desktop %s" {1, 2, 3, 4, 5, 6, 7, 8, 9})"
 
+# ...
+super + Left
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch Window Left"
+
+super + Right
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch Window Right"
+
+super + Up
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch Window Up"
+
+super + Down
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch Window Down"
+
+super + shift + q
+    qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Window Close"
+
+# ...
+XF86AudioPlay
+    mpc toggle
+
+XF86AudioStop
+    mpc toggle
+
+# ...
 super + e
-    org_mode
+    emacs --fullscreen
 
 super + f
     kstart5 --fullscreen firefox
@@ -19,5 +46,6 @@ super + g
 super + k
     keepassxc
 
+# ...
 super + shift + q
     printf "" | rofi -dmenu -p "Input text" -lines 0 | gqr -s -x
