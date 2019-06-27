@@ -1,7 +1,5 @@
 # vim: set ft=sh:
 
-source "$HOME/._func.sh"
-
 USER_BIN="$HOME/bin:$HOME/.local/bin"
 export PATH="$PATH:$USER_BIN"
 
