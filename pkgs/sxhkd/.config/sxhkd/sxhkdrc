@@ -23,7 +23,7 @@ super + Up
 super + Down
     qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch Window Down"
 
-super + shift + q
+super + q
     qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Window Close"
 
 # ...
