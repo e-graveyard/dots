@@ -97,7 +97,6 @@ call plug#begin('~/.vim/plugged')
 "           <https://github.com/universal-ctags/ctags>
 
     Plug 'jreybert/vimagit'             " ...
-    Plug 'ludovicchabant/vim-gutentags' " ...
     Plug 'majutsushi/tagbar'            " Class outline viewer
     Plug 'sheerun/vim-polyglot'         " Language collection pack
     Plug 'fatih/vim-go'                 " IDE-like tools for Golang
@@ -151,6 +150,7 @@ endif
     let g:ale_linters = {
     \    'python': ['bandit', 'prospector', 'pycodestyle', 'pydocstyle'],
     \    'javascript': ['eslint'],
+    \    'typescript': ['eslint'],
     \}
 
     let g:ale_sign_column_always = 1
@@ -419,6 +419,16 @@ endif
     autocmd FileType vim nnoremap <Space> za
     autocmd FileType zsh nnoremap <Space> za
     autocmd FileType tmux nnoremap <Space> za
+
+" }}}
+" COPY & PASTE {{{
+
+    " delete without yanking
+    nnoremap <LocalLeader>d "_d
+    vnoremap <LocalLeader>d "_d
+
+    " replace selected text without yanking
+    vnoremap <LocalLeader>p "_dP
 
 " }}}
 " MISC {{{
