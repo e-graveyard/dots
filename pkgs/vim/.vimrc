@@ -196,6 +196,8 @@ endif
                     \ 'javascript.jsx',
                     \ ]
 
+    let g:deoplete#sources#go#gocode_binary = '/home/cai/go/bin/gocode'
+
 " }}}
 
 
