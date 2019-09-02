@@ -56,7 +56,7 @@
 (setq inhibit-startup-screen t)
 
 ; set the font type and size
-(set-frame-font "xos4 Terminus 14" nil t)
+(set-frame-font "Hack Nerd Font Mono 14" nil t)
 
 ; set transparency (85%)
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
