@@ -6,7 +6,7 @@ m() {
 
 # open a new tmux session; attach if already exists
 t() {
-    if ! tmux ls; then
+    if ! tmux ls 2> /dev/null; then
         tmux -f "$HOME/.config/tmux/.tmux.conf"
     else
         tmux a

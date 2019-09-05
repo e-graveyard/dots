@@ -163,11 +163,8 @@
     # golang compiler
     GO_PATH="$HOME/bin/golang/bin"
 
-    # ruby version manager
-    RVM_PATH="$HOME/.rvm/bin"
-
     # export the whole shebang
-    export PATH="$PATH:$USER_BIN:$GO_PATH:$RVM_PATH"
+    export PATH="$PATH:$USER_BIN:$GO_PATH:/usr/local/sbin"
 
 # }}}
 # ALIASES {{{
@@ -175,10 +172,11 @@
     # programs
     alias b="bat"
     alias c="clear"
-    alias e="emacs -nw"
     alias v="nvim"
-    alias l="ls_extended -lhA"
-    alias ll="ls_extended -lh"
+    alias ll="exa --long --header --sort type --reverse --git --group"
+    alias l="ll --all"
+    alias llt="ll --tree"
+    alias lt="l --tree"
 
     alias azc="docker run -it mcr.microsoft.com/azure-cli"
 
@@ -190,9 +188,6 @@
     alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
     alias _emacs='v $DOTS_DIR/emacs/.emacs'
     alias _maps='v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc'
-
-    # notes
-    alias notes='e $HOME/Projs/notes.org/notes/c.org'
 
     # common directories
     alias gmed='cd /run/media/$USER'
