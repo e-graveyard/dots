@@ -17,10 +17,9 @@
 
  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-   x          > stuff that starts with xorg
    alacritty  > gpu-accelerated terminal (has issues)
    emacs      > org-mode notes, lists etc
-   gtk        > padding on termite
+   gtk3       > padding on termite
    htop       > time, battery and avg cpu load customs
    mpd        > music player daemon setup
    ncmpcpp    > ncurses mpc++ w/ ui customs
@@ -30,7 +29,8 @@
    termite    > vte-based terminal (great glyphs support)
    ternjs     > js autocompletion tool
    tmux       > terminal multiplexer w/ better movements
-   neovim     > dev-oriented text editor
+   vim        > dev-oriented text editor
+   x          > stuff that starts with xorg
    zsh        > custom prompt, aliases, shortcuts
 
  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
