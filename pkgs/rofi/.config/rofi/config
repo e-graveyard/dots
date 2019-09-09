@@ -9,7 +9,7 @@ rofi.scroll-method: 1
 rofi.lines: 10
 rofi.eh: 1
 rofi.width: 50
-rofi.font: xos4 Terminus 12
+rofi.font: Hack Nerd Font Mono 12
 rofi.line-margin: 5
 rofi.separator-style: none
 rofi.hide-scrollbar
