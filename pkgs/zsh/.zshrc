@@ -125,6 +125,51 @@
     source "$ZSH/oh-my-zsh.sh"
 
 # }}}
+# FUNCTIONS {{{
+
+    # create a job that doesn't depend on zsh
+    mjob() {
+        nohup "$@" & disown
+    }
+
+    # create a dir (with parents) and cd into them
+    m() {
+        mkdir -p -- "$1" &&
+            cd -P -- "$1" || return
+    }
+
+    # open a new tmux session; attach if already exists
+    t() {
+        if ! tmux ls 2> /dev/null; then
+            tmux -f "$HOME/.config/tmux/.tmux.conf"
+        else
+            tmux a
+        fi
+    }
+
+    # download a mp3 from youtube (w/ the best quality possible)
+    ytd() {
+        youtube-dl \
+            --extract-audio \
+            --audio-format mp3 \
+            --audio-quality 0 \
+            "https://www.youtube.com/watch?v=$1"
+    }
+
+#}}}
+# OS-BASED {{{
+
+    case "$OSTYPE" in
+        linux-gnu)
+            source "$HOME/.linux_prefs.zsh"
+            ;;
+
+        darwin*)
+            source "$HOME/.macos_prefs.zsh"
+            ;;
+    esac
+
+# }}}
 # PROGRAMS {{{
 
     VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -132,39 +177,18 @@
 # }}}
 # ENVIRONMENT {{{
 
-    # git & dots-related
-    export PROJ_DIR="/run/media/$USER/warehouse/git"
+    # dots
     export DOTS_DIR="$HOME/dots/pkgs"
     export VIM_PROF="$DOTS_DIR/vim"
 
-    # For some bizarre reason, some KDE variables are not exported inside tmux
-    # sessions. "xdg-open" is one the programs that relies on that variables
-    # (namely, the "KDE_SESSION_VERSION") for working properly. When
-    # KDE_SESSION_VERSION is not defined, xdg-open is unable to open URLs,
-    # therefore commands like "gx" on vim doesn't work at all.
-
-    # This is definitely a tmux issue, since when not using it, everything goes
-    # as expected (independently of the terminal emulator used).
-
-    # About KDE-specific environment varibles:
-    # <https://userbase.kde.org/KDE_System_Administration/Environment_Variables>
-
-    # The bug thread that saved me:
-    # <https://bugs.launchpad.net/ubuntu/+source/xdg-utils/+bug/545044>
-    export KDE_FULL_SESSION=true
-    export KDE_SESSION_VERSION=5
-
 # }}}
 # PATH {{{
-
-    # muh binaries
-    USER_BIN="$HOME/bin:$HOME/.local/bin"
 
     # golang compiler
     GO_PATH="$HOME/bin/golang/bin"
 
     # export the whole shebang
-    export PATH="$PATH:$USER_BIN:$GO_PATH:/usr/local/sbin"
+    export PATH="$PATH:$HOME/bin:$GO_PATH:"
 
 # }}}
 # ALIASES {{{
@@ -178,41 +202,33 @@
     alias llt="ll --tree"
     alias lt="l --tree"
 
-    alias azc="docker run -it mcr.microsoft.com/azure-cli"
-
     # configuration files
-    alias _dots='v $DOTS_DIR'
-    alias _vim='v $VIM_PROF/.vimrc'
-    alias _zsh='v $DOTS_DIR/zsh/.zshrc'
-    alias _term='v $DOTS_DIR/termite/.config/termite/config'
-    alias _tmux='v $DOTS_DIR/tmux/.config/tmux/.tmux.conf'
-    alias _emacs='v $DOTS_DIR/emacs/.emacs'
-    alias _maps='v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc'
+    alias _dots="v $DOTS_DIR"
+    alias _vim="v $VIM_PROF/.vimrc"
+    alias _zsh="v $DOTS_DIR/zsh/.zshrc"
+    alias _term="v $DOTS_DIR/termite/.config/termite/config"
+    alias _tmux="v $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
+    alias _emacs="v $DOTS_DIR/emacs/.emacs"
+    alias _maps="v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc"
 
     # common directories
-    alias gmed='cd /run/media/$USER'
-    alias ggit='cd $PROJ_DIR'
-    alias gorg='cd $PROJ_DIR/org'
+    alias ggit="cd $PROJ_DIR"
+    alias gorg="cd $PROJ_DIR/org"
 
-    alias gdoc='cd $HOME/Documents'
-    alias gdow='cd $HOME/Downloads'
-    alias gpic='cd $HOME/Pictures'
-    alias gvid='cd $HOME/Videos'
-    alias gmus='cd $HOME/Music'
-    alias gbin='cd $HOME/bin'
+    alias gdoc="cd $HOME/Documents"
+    alias gdow="cd $HOME/Downloads"
+    alias gpic="cd $HOME/Pictures"
+    alias gvid="cd $HOME/Videos"
+    alias gmus="cd $HOME/Music"
+    alias gbin="cd $HOME/bin"
 
-    alias gdot='cd $DOTS_DIR'
-    alias gwor='cd $HOME/work'
+    alias gdot="cd $DOTS_DIR"
+    alias gwor="cd $HOME/work"
 
     # common actions
-    alias uzc='source $HOME/.zshrc'
+    alias uzc="source $HOME/.zshrc"
 
 # }}}
-# FUNCTIONS {{{
-
-source "$HOME/._func.sh"
-
-#}}}
 # THEME {{{
 
     (cat ~/.cache/wal/sequences &)
