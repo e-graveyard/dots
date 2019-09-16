@@ -16,7 +16,8 @@
 # }}}
 # PATH {{{
 
-    export PATH="$PATH:/usr/local/sbin"
+    PYTHON_BIN="$HOME/Library/Python/3.7/bin"
+    export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN"
 
 # }}}
 # FUNCTIONS {{{
