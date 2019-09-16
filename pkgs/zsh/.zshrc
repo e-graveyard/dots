@@ -184,11 +184,8 @@
 # }}}
 # PATH {{{
 
-    # golang compiler
-    GO_PATH="$HOME/bin/golang/bin"
-
-    # export the whole shebang
-    export PATH="$PATH:$HOME/bin:$GO_PATH:"
+    # muh binaries & go stuff
+    export PATH="$PATH:$HOME/bin:$HOME/go/bin"
 
 # }}}
 # ALIASES {{{
