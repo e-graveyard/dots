@@ -17,11 +17,12 @@ set nocompatible
 
 " DIRECTORY {{{
 
+    " Vim runtime directory
     if !isdirectory($HOME . "/.vim")
         call mkdir($HOME . "/.vim", "", 0700)
     endif
 
-
+    " Vim undo directory
     if !isdirectory($HOME . "/.vim/undo")
         call mkdir($HOME . "/.vim/undo", "", 0700)
     endif
@@ -31,9 +32,9 @@ set nocompatible
 " }}}
 
 
-" =================
-" PLUGIN MANAGEMENT
-" =================
+" =======
+" PLUGINS
+" =======
 
 " PLUG AUTOINSTALL {{{
 
@@ -47,42 +48,24 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" NEOVIM {{{
+" APPEARANCE {{{
 
-" Requires: <https://github.com/davidhalter/jedi>
-"           <https://github.com/neovim/pynvim>
-"           <https://github.com/mdempsky/gocode>
-
-    if has('nvim')
-        Plug 'w0rp/ale' " Async Lint Engine
-
-        " Async keyword completion system
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-        " Deoplete source...
-        Plug 'Shougo/neco-vim'          " ...for VimL
-        Plug 'Shougo/deoplete-clangx'   " ...for C/C++
-        Plug 'zchee/deoplete-jedi'      " ...for Python
-        Plug 'carlitux/deoplete-ternjs' " ...for JavaScript
-        Plug 'zchee/deoplete-go', { 'do': 'make' } " ...for Go
-
-        Plug 'Shougo/denite.nvim' " Fuzzy finder + stuff
-    endif
-
-"}}}
-" UI {{{
-
-    Plug 'lilydjwg/colorizer'      " Colorizes text in #RGB format (#BABACA, #123456, #F0D45E)
-    Plug 'itchyny/vim-cursorword'  " Underlines the word under the cursor
-    Plug 'dylanaraps/wal.vim'      " Pywal's colourscheme in Vim
-    Plug 'junegunn/limelight.vim'  " Hyperfocus-writing
-    Plug 'junegunn/goyo.vim'       " Distraction-free writing
-    Plug 'vim-airline/vim-airline' " Status bar/tabline
+    Plug 'lilydjwg/colorizer'             " Colorizes text in #RGB format (#BABACA, #123456, #F0D45E)
+    Plug 'itchyny/vim-cursorword'         " Underlines the word under the cursor
+    Plug 'dylanaraps/wal.vim'             " Pywal's colourscheme in Vim
+    Plug 'vim-airline/vim-airline'        " Status bar/tabline
     Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 
 " }}}
-" UTILS {{{
+" WRITING {{{
 
+    Plug 'junegunn/limelight.vim'  " Hyperfocus-writing
+    Plug 'junegunn/goyo.vim'       " Distraction-free writing
+
+" }}}
+" FEATURES {{{
+
+    Plug 'tpope/vim-repeat'         " Repetition on plugin commands
     Plug 'tpope/vim-surround'       " Quoting/parenthesizing
     Plug 'itmammoth/doorboy.vim'    " Auto-completion for open-close pair of characters
     Plug 'godlygeek/tabular'        " Text filtering and alignment
@@ -95,69 +78,38 @@ call plug#begin('~/.vim/plugged')
 
 " Requires: <https://github.com/derekparker/delve>
 "           <https://github.com/universal-ctags/ctags>
+"           <https://github.com/davidhalter/jedi>
+"           <https://github.com/neovim/pynvim>
+"           <https://github.com/neovim/node-client>
 
-    Plug 'jreybert/vimagit'             " ...
-    Plug 'majutsushi/tagbar'            " Class outline viewer
-    Plug 'sheerun/vim-polyglot'         " Language collection pack
-    Plug 'fatih/vim-go'                 " IDE-like tools for Golang
-    Plug 'Shougo/neosnippet.vim'        " Snippet support
-    Plug 'Shougo/neosnippet-snippets'   " Snippet source
-    Plug 'davidhalter/jedi-vim'         " ...
-
-    " ...
-    Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
-
-" }}}
-" VCS {{{
-
-    Plug 'mhinz/vim-signify'           " Shows git diff in the gutter
+    Plug 'jreybert/vimagit'            " Git workflow
+    Plug 'majutsushi/tagbar'           " Ctags support
+    Plug 'sheerun/vim-polyglot'        " Syntax highlight & filetype plugin pack
+    Plug 'mhinz/vim-signify'           " Shows git diff on the gutter
     Plug 'Xuyuanp/nerdtree-git-plugin' " Git status flags in NERDTree
 
-" }}}
-" MARKUP {{{
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    Plug 'plasticboy/vim-markdown' " Syntax highlight and other stuff
-
-" }}}
-" WEB {{{
-
-    Plug 'elzr/vim-json'                " A better JSON for Vim
-    Plug 'othree/html5.vim'             " Omnicomplete for HTML5
-    Plug 'hail2u/vim-css3-syntax'       " CSS syntax support
-    Plug 'nikvdp/ejs-syntax'            " EJS syntax support
-
-" }}}
-" SYNTAX {{{
-
-    Plug 'mboughaba/i3config.vim' " syntax highlight for i3 config file
+    let g:coc_global_extensions = [
+                    \ 'coc-go',
+                    \ 'coc-tsserver',
+                    \ 'coc-eslint',
+                    \ 'coc-python',
+                    \ 'coc-vimlsp',
+                    \ 'coc-json',
+                    \ 'coc-snippets',
+                    \ 'coc-word',
+                    \ ]
 
 " }}}
 
 call plug#end()
-
-" Triggers deoplete (auto-completion)
-if has('nvim')
-    call deoplete#enable()
-endif
 
 
 " ==================
 " PLUGIN PREFERENCES
 " ==================
 
-" ALE {{{
-
-    let g:ale_linters = {
-    \    'python': ['bandit', 'prospector', 'pycodestyle', 'pydocstyle'],
-    \    'javascript': ['eslint'],
-    \    'typescript': ['eslint'],
-    \}
-
-    let g:ale_sign_column_always = 1
-    let g:ale_lint_on_text_changed = 'never'
-    let b:ale_warn_about_trailing_whitespace = 0
-
-" }}}
 " VIM-AIRLINE {{{
 
     let g:airline_theme='base16color'                   " Uses the terminal colourscheme
@@ -186,17 +138,6 @@ endif
     \ "Untracked" : "?",
     \ "Dirty"     : "x",
     \ }
-
-" }}}
-" DEOPLETE {{{
-
-    "Add extra filetypes
-    let g:deoplete#sources#ternjs#filetypes = [
-                    \ 'jsx',
-                    \ 'javascript.jsx',
-                    \ ]
-
-    let g:deoplete#sources#go#gocode_binary = '/home/cai/go/bin/gocode'
 
 " }}}
 
@@ -231,7 +172,7 @@ endif
 " Ref: <http://vim.wikia.com/wiki/Using_the_mouse_for_Vim_in_an_xterm>
 "      <https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode>
 
-    let mapleader='\'       " Remaps the 'leader' key
+    let mapleader=' '       " Remaps the 'leader' key
     let maplocalleader=','  " Remaps the 'local leader' key
 
     set showcmd             " Shows the entered command & number of selected lines
@@ -399,9 +340,9 @@ endif
     nnoremap <F4> :TagbarToggle<CR>
     inoremap <F4> <Esc>:TagbarToggle<CR>a
 
-    " Open Tagbar
-    nnoremap <F9> :Goyo 90<CR>
-    inoremap <F9> <Esc>:Goyo 90<CR>a
+    " Active Goyo
+    nnoremap <F9> :Goyo<CR>
+    inoremap <F9> <Esc>:Goyo<CR>a
 
     " ...
     autocmd FileType javascript.jsx nnoremap <LocalLeader>jj :TernDef<CR>
@@ -435,11 +376,14 @@ endif
 " }}}
 " MISC {{{
 
-    " Toggle between cursor at the middle or "normal"
-    nnoremap <LocalLeader>c :call ToggleCursorInTheMiddle()<CR>
+    " Toggle between cursor at the middle and "normal"
+    nnoremap <LocalLeader>m :call ToggleCursorInTheMiddle()<CR>
 
     " Toggles search highlighting
     nnoremap <LocalLeader>s :set hlsearch!<CR>
+
+    " Toggles case-sensitive search
+    nnoremap <LocalLeader>c set ignorecase!<CR>
 
     " Automatically deletes all tralling whitespace on save
     autocmd BufWritePre * %s/\s\+$//e
