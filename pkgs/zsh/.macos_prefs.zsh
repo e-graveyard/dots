@@ -13,6 +13,8 @@
     # PROJ_DIR
     export PROJ_DIR="$HOME/Projs"
 
+    export LC_ALL="en_GB.UTF-8"
+
 # }}}
 # PATH {{{
 
