@@ -46,6 +46,9 @@ super + g
 super + k
     keepassxc
 
+super + d
+    dolphin
+
 # ...
 super + shift + q
     printf "" | rofi -dmenu -p "Input text" -lines 0 | gqr -s -x
