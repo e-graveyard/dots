@@ -99,6 +99,7 @@ call plug#begin('~/.vim/plugged')
                     \ 'coc-json',
                     \ 'coc-snippets',
                     \ 'coc-word',
+                    \ 'coc-translator',
                     \ ]
 
 " }}}
@@ -279,18 +280,6 @@ call plug#end()
     " Copy selected text to system clipboard (requires gvim)
     vnoremap <C-c> "+y
 
-    " Jump to definition
-    nmap <silent> gd <Plug>(coc-definition)
-
-    " Jump to type definition
-    nmap <silent> gy <Plug>(coc-type-definition)
-
-    " Jump to implementation
-    nmap <silent> gi <Plug>(coc-implementation)
-
-    " Jump to references
-    nmap <silent> gr <Plug>(coc-references)
-
 " }}}
 " BUFFERS {{{
 
@@ -349,6 +338,31 @@ call plug#end()
 " }}}
 " PLUGINS {{{
 
+    " COC {{{
+
+        " Translate to popup
+        nmap <LocalLeader>tp <Plug>(coc-translator-p)
+
+        " Translate to echo
+        nmap <LocalLeader>te <Plug>(coc-translator-e)
+
+        " Translate and replace word
+        nmap <LocalLeader>tr <Plug>(coc-translator-r)
+
+        " Jump to definition
+        nmap <silent> gd <Plug>(coc-definition)
+
+        " Jump to type definition
+        nmap <silent> gy <Plug>(coc-type-definition)
+
+        " Jump to implementation
+        nmap <silent> gi <Plug>(coc-implementation)
+
+        " Jump to references
+        nmap <silent> gr <Plug>(coc-references)
+
+    " }}}
+
     " Open NERDTree
     nnoremap <F3> :NERDTreeToggle<CR>
     inoremap <F3> <Esc>:NERDTreeToggle<CR>a
@@ -357,15 +371,10 @@ call plug#end()
     nnoremap <F4> :TagbarToggle<CR>
     inoremap <F4> <Esc>:TagbarToggle<CR>a
 
-    " Active Goyo
+    " Activate Goyo
     nnoremap <F9> :Goyo<CR>
     inoremap <F9> <Esc>:Goyo<CR>a
 
-    " ...
-    autocmd FileType javascript.jsx nnoremap <LocalLeader>jj :TernDef<CR>
-    autocmd FileType javascript.jsx nnoremap <LocalLeader>jd :TernDoc<CR>
-    autocmd FileType javascript.jsx nnoremap <LocalLeader>jt :TernType<CR>
-    autocmd FileType javascript.jsx nnoremap <LocalLeader>jr :TernRename<CR>
 
 " }}}
 " FOLDING {{{
