@@ -242,6 +242,19 @@ call plug#end()
 " COMMANDS & REMAPS
 " =================
 
+" COMMANDS {{{
+
+    " Typos
+    command W w
+    command Q q
+    command WQ wq
+
+    " First go to the next buffer, then delete
+    " Prevents vim to close the current buffer and
+    " close or fall back to NERDTree
+    command BW :bn | :bd#
+
+" }}}
 " TERMINAL {{{
 
     " Open terminal
@@ -266,6 +279,18 @@ call plug#end()
     " Copy selected text to system clipboard (requires gvim)
     vnoremap <C-c> "+y
 
+    " Jump to definition
+    nmap <silent> gd <Plug>(coc-definition)
+
+    " Jump to type definition
+    nmap <silent> gy <Plug>(coc-type-definition)
+
+    " Jump to implementation
+    nmap <silent> gi <Plug>(coc-implementation)
+
+    " Jump to references
+    nmap <silent> gr <Plug>(coc-references)
+
 " }}}
 " BUFFERS {{{
 
@@ -276,7 +301,7 @@ call plug#end()
     nnoremap <LocalLeader>bv :vnew<CR>
 
     " Close the active buffer
-    nnoremap <LocalLeader>bd :bd<CR>
+    nnoremap <LocalLeader>bd :BW<CR>
 
     " List all
     nnoremap <LocalLeader>bl :ls<CR>
@@ -320,14 +345,6 @@ call plug#end()
 
     nnoremap <C-Right> :wincmd l<CR>
     inoremap <C-Right> <C-o>:wincmd l<CR>
-
-" }}}
-" ALIASES {{{
-
-    " Prevents Vim to yell at me when I use capitalized commands
-    command W w
-    command Q q
-    command WQ wq
 
 " }}}
 " PLUGINS {{{
