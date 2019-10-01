@@ -58,10 +58,6 @@
 ; set the font type and size
 (set-frame-font "Hack Nerd Font Mono 14" nil t)
 
-; set transparency (85%)
-(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
-(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
-
 ; initializes evil mode
 (evil-mode 1)
 
