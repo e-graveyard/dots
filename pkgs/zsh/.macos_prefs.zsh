@@ -22,6 +22,13 @@
     export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN"
 
 # }}}
+# ALIASES {{{
+
+    # take content from STDOUT to clipboard
+    # usage, e.g.: pwgen -cns 32 1 | to_clipboard
+    alias to_clipboard="pbcopy"
+
+# }}}
 # FUNCTIONS {{{
 
     # change wallpaper for current workspace
