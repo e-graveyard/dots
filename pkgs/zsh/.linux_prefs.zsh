@@ -42,9 +42,6 @@
     # common directories
     alias gmed="cd /run/media/$USER"
 
-    # dev
-    alias azc="docker run -it mcr.microsoft.com/azure-cli"
-
     # take content from STDOUT to clipboard
     # usage, e.g.: pwgen -cns 32 1 | to_clipboard
     alias to_clipboard="xclip -sel clipboard"
