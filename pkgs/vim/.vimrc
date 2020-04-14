@@ -57,16 +57,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 
 " }}}
-" WRITING {{{
-
-    Plug 'junegunn/limelight.vim'  " Hyperfocus-writing
-    Plug 'junegunn/goyo.vim'       " Distraction-free writing
-
-" }}}
 " FEATURES {{{
 
     Plug 'tpope/vim-repeat'         " Repetition on plugin commands
-    Plug 'tpope/vim-surround'       " Quoting/parenthesizing
     Plug 'itmammoth/doorboy.vim'    " Auto-completion for open-close pair of characters
     Plug 'godlygeek/tabular'        " Text filtering and alignment
     Plug 'google/vim-searchindex'   " Display number of search matches & index of a current match
@@ -82,7 +75,6 @@ call plug#begin('~/.vim/plugged')
 "           <https://github.com/neovim/pynvim>
 "           <https://github.com/neovim/node-client>
 
-    Plug 'jreybert/vimagit'            " Git workflow
     Plug 'majutsushi/tagbar'           " Ctags support
     Plug 'sheerun/vim-polyglot'        " Syntax highlight & filetype plugin pack
     Plug 'mhinz/vim-signify'           " Shows git diff on the gutter
@@ -376,11 +368,6 @@ call plug#end()
     " Open Tagbar
     nnoremap <F4> :TagbarToggle<CR>
     inoremap <F4> <Esc>:TagbarToggle<CR>a
-
-    " Activate Goyo
-    nnoremap <F9> :Goyo<CR>
-    inoremap <F9> <Esc>:Goyo<CR>a
-
 
 " }}}
 " FOLDING {{{
