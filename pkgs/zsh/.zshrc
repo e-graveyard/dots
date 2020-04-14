@@ -156,15 +156,6 @@
             "https://www.youtube.com/watch?v=$1"
     }
 
-    # nvm severely slows down the shell startup; let's load nvm only when necessary
-    nvm_init() {
-        # loads nvm
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-        # loads shell completions
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-    }
-
 #}}}
 # OS-BASED {{{
 

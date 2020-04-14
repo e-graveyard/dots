@@ -42,4 +42,13 @@
         chwp "$(cat "$HOME/.cache/wal/wal")"
     }
 
+    # nvm severely slows down the shell startup; let's load nvm only when necessary
+    init_nvm() {
+        # loads nvm
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+        # loads shell completions
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    }
+
 # }}}
