@@ -147,7 +147,7 @@ call plug#end()
 
 " ToggleCursorInTheMiddle {{{
 
-    let g:cursor_in_the_middle = 1
+    let g:cursor_in_the_middle = 0
 
     fun ToggleCursorInTheMiddle()
         if g:cursor_in_the_middle
@@ -210,7 +210,7 @@ call plug#end()
     set expandtab             " Expand TABs to spaces
     set tabstop=4             " Set TAB as 4 spaces wide
     set shiftwidth=4          " Shift 4 spaces wide when identing/dedenting
-    set scrolloff=999         " Cursor line in the middle of screen
+    set scrolloff=0           " Cursor line in the middle of screen
     set fillchars=vert:│      " Makes a continuous line with a special UTF-8 char
     set laststatus=2          " Always display the status line
     set formatoptions+=t      " Automatic word wrapping
