@@ -160,6 +160,21 @@ call plug#end()
     endfun
 
 " }}}
+" ToggleBufferZoomIn {{{
+
+    let g:buffer_zoom_in = 0
+
+    fun ToggleBufferZoomIn()
+        if g:buffer_zoom_in
+            let g:buffer_zoom_in = 0
+            execute "tabclose"
+        else
+            let g:buffer_zoom_in = 1
+            execute "tabedit %"
+        endif
+    endfun
+
+" }}}
 
 
 " ===================
@@ -292,6 +307,9 @@ call plug#end()
 
     " List all
     nnoremap <LocalLeader>bl :ls<CR>
+
+    " zoom in and out from the current buffer (similar to tmux's "bind-z")
+    nnoremap <LocalLeader>bz :call ToggleBufferZoomIn()<CR>
 
     " Go to previous
     nnoremap <C-o> :bp<CR>
