@@ -141,6 +141,12 @@ call plug#end()
     \ }
 
 " }}}
+" COC {{{
+
+    " Avoid COC to use the node interpreter set by nvm
+    let g:coc_node_path = "/usr/local/bin/node"
+
+" }}}
 
 
 " ================
