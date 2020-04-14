@@ -42,6 +42,9 @@
     # common directories
     alias gmed="cd /run/media/$USER"
 
+    # dev
+    alias init_nvm="source /usr/share/nvm/init-nvm.sh"
+
     # take content from STDOUT to clipboard
     # usage, e.g.: pwgen -cns 32 1 | to_clipboard
     alias to_clipboard="xclip -sel clipboard"
