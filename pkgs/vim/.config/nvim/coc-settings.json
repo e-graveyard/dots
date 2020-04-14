@@ -17,5 +17,7 @@
         "typescript"
     ],
     "translator.toLang": "en",
-    "translator.engines": [ "google" ]
+    "translator.engines": [ "google" ],
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc"]
 }
