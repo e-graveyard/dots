@@ -18,7 +18,7 @@
 # }}}
 # PATH {{{
 
-    PYTHON_BIN="$HOME/Library/Python/3.7/bin"
+    PYTHON_BIN="$HOME/Library/Python/3.9/bin"
     export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN"
 
 # }}}
