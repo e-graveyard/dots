@@ -196,20 +196,20 @@
     # programs
     alias b="bat"
     alias c="clear"
-    alias v="nvim"
+    alias nv="nvim"
     alias ll="exa --long --header --sort type --reverse --git --group"
     alias l="ll --all"
     alias llt="ll --tree"
     alias lt="l --tree"
 
     # configuration files
-    alias _dots="v $DOTS_DIR"
-    alias _vim="v $VIM_PROF/.vimrc"
-    alias _zsh="v $DOTS_DIR/zsh/.zshrc $DOTS_DIR/zsh/.macos_prefs.zsh $DOTS_DIR/zsh/.linux_prefs.zsh"
-    alias _term="v $DOTS_DIR/termite/.config/termite/config"
-    alias _tmux="v $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
-    alias _emacs="v $DOTS_DIR/emacs/.emacs"
-    alias _maps="v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc"
+    alias _dots="nv $DOTS_DIR"
+    alias _vim="nv $VIM_PROF/.vimrc"
+    alias _zsh="nv $DOTS_DIR/zsh/.zshrc $DOTS_DIR/zsh/.macos_prefs.zsh $DOTS_DIR/zsh/.linux_prefs.zsh"
+    alias _term="nv $DOTS_DIR/termite/.config/termite/config"
+    alias _tmux="nv $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
+    alias _emacs="nv $DOTS_DIR/emacs/.emacs"
+    alias _maps="nv $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc"
 
     # common directories
     alias ggit="cd $PROJ_DIR"
