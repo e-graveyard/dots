@@ -428,4 +428,7 @@ call plug#end()
     " Disables automatic commenting on newline
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+    " Set the V extension to be related to vlang instead of verilog
+    au BufNewFile,BufRead,BufReadPost *.v set ft=vlang
+
 " }}}
