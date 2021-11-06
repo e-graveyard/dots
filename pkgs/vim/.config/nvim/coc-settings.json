@@ -18,6 +18,8 @@
     ],
     "translator.toLang": "en",
     "translator.engines": [ "google" ],
+    "python.formatting.provider": "black",
     "python.linting.enabled": true,
-    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc"]
+    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc"],
+    "javascript.validate.enable": false
 }

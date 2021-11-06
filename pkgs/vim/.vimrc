@@ -60,6 +60,7 @@ call plug#begin('~/.vim/plugged')
 " FEATURES {{{
 
     Plug 'tpope/vim-repeat'         " Repetition on plugin commands
+    Plug 'tpope/vim-abolish'        " Variables coercion
     Plug 'itmammoth/doorboy.vim'    " Auto-completion for open-close pair of characters
     Plug 'godlygeek/tabular'        " Text filtering and alignment
     Plug 'google/vim-searchindex'   " Display number of search matches & index of a current match
