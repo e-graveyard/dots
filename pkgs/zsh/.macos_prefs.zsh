@@ -18,8 +18,9 @@
 # }}}
 # PATH {{{
 
+    NIMBLE_BIN="$HOME/.nimble/bin"
     PYTHON_BIN="$HOME/Library/Python/3.9/bin"
-    export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN"
+    export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN:$NIMBLE_BIN"
 
 # }}}
 # ALIASES {{{
@@ -49,6 +50,10 @@
 
         # loads shell completions
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    }
+
+    init_rvm() {
+        [ -s "$RVM_DIR/scripts/rvm" ] && \. "$RVM_DIR/scripts/rvm"
     }
 
 # }}}

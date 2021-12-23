@@ -157,19 +157,6 @@
     }
 
 #}}}
-# OS-BASED {{{
-
-    case "$OSTYPE" in
-        linux-gnu)
-            source "$HOME/.linux_prefs.zsh"
-            ;;
-
-        darwin*)
-            source "$HOME/.macos_prefs.zsh"
-            ;;
-    esac
-
-# }}}
 # PROGRAMS {{{
 
     VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -184,11 +171,29 @@
     # node version manager (nvm)
     export NVM_DIR="$HOME/.nvm"
 
+    # ruby version manager (rvm)
+    export RVM_DIR="$HOME/.rvm"
+
+# }}}
+# OS-BASED {{{
+
+    case "$OSTYPE" in
+        linux-gnu)
+            source "$HOME/.linux_prefs.zsh"
+            ;;
+
+        darwin*)
+            source "$HOME/.macos_prefs.zsh"
+            ;;
+    esac
+
 # }}}
 # PATH {{{
 
     # muh binaries & go stuff
-    export PATH="$PATH:$HOME/bin:$HOME/go/bin"
+    GOLANG_PATH="$HOME/bin:$HOME/go/bin"
+    OPENJDK_PATH="/usr/local/opt/openjdk/bin"
+    export PATH="$PATH:$OPENJDK_PATH:$GOLANG_PATH"
 
 # }}}
 # ALIASES {{{
@@ -210,20 +215,6 @@
     alias _tmux="nv $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
     alias _emacs="nv $DOTS_DIR/emacs/.emacs"
     alias _maps="nv $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc"
-
-    # common directories
-    alias ggit="cd $PROJ_DIR"
-    alias gorg="cd $PROJ_DIR/org"
-
-    alias gdoc="cd $HOME/Documents"
-    alias gdow="cd $HOME/Downloads"
-    alias gpic="cd $HOME/Pictures"
-    alias gvid="cd $HOME/Videos"
-    alias gmus="cd $HOME/Music"
-    alias gbin="cd $HOME/bin"
-
-    alias gdot="cd $DOTS_DIR"
-    alias gwor="cd $HOME/work"
 
     # common actions
     alias uzc="source $HOME/.zshrc"
