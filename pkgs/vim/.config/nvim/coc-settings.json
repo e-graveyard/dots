@@ -12,9 +12,8 @@
         }
     },
     "eslint.autoFixOnSave": true,
-    "eslint.filetypes": [
-        "javascript",
-        "typescript"
+    "eslint.workingDirectories": [
+        {"mode": "auto"}
     ],
     "translator.toLang": "en",
     "translator.engines": [ "google" ],
