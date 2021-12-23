@@ -126,7 +126,7 @@ call plug#end()
     let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']
 
     " Git indicators
-    let g:NERDTreeIndicatorMapCustom = {
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "!",
     \ "Staged"    : "+",
     \ "Untracked" : "?",
