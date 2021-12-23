@@ -1,7 +1,0 @@
-# vim: set ft=sh:
-
-USER_BIN="$HOME/bin:$HOME/.local/bin"
-export PATH="$PATH:$USER_BIN"
-
-mpd &
-sxhkd &
