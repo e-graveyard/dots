@@ -14,37 +14,12 @@
 " ===========
 
 set nocompatible
-
-" DIRECTORY {{{
-
-    " Vim runtime directory
-    if !isdirectory($HOME . "/.vim")
-        call mkdir($HOME . "/.vim", "", 0700)
-    endif
-
-    " Vim undo directory
-    if !isdirectory($HOME . "/.vim/undo")
-        call mkdir($HOME . "/.vim/undo", "", 0700)
-    endif
-
-    set runtimepath+=~/.vim/
-
-" }}}
+set runtimepath+=~/.vim/
 
 
 " =======
 " PLUGINS
 " =======
-
-" PLUG AUTOINSTALL {{{
-
-    if empty(glob('~/.vim/autoload/plug.vim'))
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-
-" }}}
 
 call plug#begin('~/.vim/plugged')
 

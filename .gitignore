@@ -77,6 +77,3 @@ $RECYCLE.BIN/
 # vim plugins, undo history and other stuff
 pkgs/vim/.config/nvim/.netrwhist
 pkgs/vim/.vim/.netrwhist
-pkgs/vim/.vim/autoload
-pkgs/vim/.vim/plugged
-pkgs/vim/.vim/undo
