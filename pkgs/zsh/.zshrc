@@ -209,7 +209,7 @@
 
     # configuration files
     alias _dots="nv $DOTS_DIR"
-    alias _vim="nv $VIM_PROF/.vimrc"
+    alias _vim="nv $VIM_PROF/.vimrc $HOME/.config/nvim/coc-settings.json"
     alias _zsh="nv $DOTS_DIR/zsh/.zshrc $DOTS_DIR/zsh/.macos_prefs.zsh $DOTS_DIR/zsh/.linux_prefs.zsh"
     alias _term="nv $DOTS_DIR/termite/.config/termite/config"
     alias _tmux="nv $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
