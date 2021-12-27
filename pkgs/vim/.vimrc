@@ -27,6 +27,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'haya14busa/incsearch.vim'        " Incremental searching
     Plug 'lambdalisue/fern.vim'            " Async tree viewer
     Plug 'antoinemadec/FixCursorHold.nvim' " Neovim performance patch
+    Plug 'nacro90/numb.nvim'               " Peek a given line using :<number>
+    Plug 'folke/zen-mode.nvim'             " Concentration mode (remove most UI components)
+    Plug 'numToStr/FTerm.nvim'             " Floating terminal
 
 " }}}
 " APPEARANCE {{{
@@ -56,6 +59,15 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" INIT {{{
+
+    lua require('numb').setup()
+    lua require('zen-mode').setup()
+
+    command! FTermOpen lua require('FTerm').open()
+    command! FTermClose lua require('FTerm').close()
+
+" }}}
 
 " ======================
 " PLUGIN CONFIGS / PREFS
@@ -106,15 +118,21 @@ call plug#end()
 
     " Language servers
     let g:coc_global_extensions = [
+                \ 'coc-snippets',
+                \ 'coc-sh',
                 \ 'coc-go',
                 \ 'coc-tsserver',
                 \ 'coc-eslint',
-                \ 'coc-python',
+                \ 'coc-jedi',
+                \ 'coc-sqlfluff',
                 \ 'coc-vimlsp',
+                \ 'coc-html',
+                \ 'coc-css',
                 \ 'coc-json',
-                \ 'coc-snippets',
+                \ 'coc-yaml',
                 \ 'coc-word',
                 \ 'coc-translator',
+                \ 'coc-calc',
                 \ ]
 
     " Avoid COC to use the node interpreter set by nvm
@@ -134,10 +152,25 @@ call plug#end()
     fun ToggleBufferZoomIn()
         if g:buffer_zoom_in
             let g:buffer_zoom_in = 0
-            execute "tabclose"
+            execute 'tabclose'
         else
             let g:buffer_zoom_in = 1
-            execute "tabedit %"
+            execute 'tabedit %'
+        endif
+    endfun
+
+" }}}
+" ToggleFloatingTerminal {{{
+
+    let g:floating_term_is_active = 0
+
+    fun ToggleFloatingTerminal()
+        if g:floating_term_is_active
+            let g:floating_term_is_active = 0
+            execute 'FTermClose'
+        else
+            let g:floating_term_is_active = 1
+            execute 'FTermOpen'
         endif
     endfun
 
@@ -219,15 +252,6 @@ call plug#end()
     command W w
     command Q q
     command WQ wq
-
-" }}}
-" TERMINAL {{{
-
-    " Open terminal
-    nnoremap <LocalLeader>t :terminal<CR>
-
-    " Escape to normal mode inside a terminal buffer more easily
-    tnoremap <Esc> <C-\><C-n>
 
 " }}}
 " BUFFERS {{{
@@ -315,9 +339,17 @@ call plug#end()
 
     " }}}
 
-    " Open Fern
+    " Toggle fern tree
     nnoremap <F3> :Fern . -drawer -width=40 -toggle<CR>
     inoremap <F3> <Esc>:Fern . -drawer -width=40 -toggle<CR>a
+
+    " Toggle zen
+    nnoremap <F4> :ZenMode<CR>
+    inoremap <F4> <Esc>:ZenMode<CR>a
+
+    " Toggle floating terminal
+    nnoremap <F5> :call ToggleFloatingTerminal()<CR>
+    inoremap <F5> <Esc>:call ToggleFloatingTerminal()<CR>a
 
     " Disable line numbers on fern buffer
     au FileType fern setlocal nonumber norelativenumber
@@ -344,7 +376,7 @@ call plug#end()
     " Folding with markers ({{{ & }}})
     au FileType vim,zsh,tmux set foldmethod=marker
 
-    " Automatically deletes all tralling whitespace on save
+    " Automatically deletes all trailling whitespace on save
     au BufWritePre * %s/\s\+$//e
 
     " Disables automatic commenting on newline
