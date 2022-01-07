@@ -5,10 +5,6 @@
         {"mode": "auto"}
     ],
 
-    "python.formatting.provider": "black",
-    "python.linting.enabled": true,
-    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc"],
-
     "translator.toLang": "en",
     "translator.engines": [ "google" ]
 }
