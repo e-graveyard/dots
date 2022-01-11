@@ -1,3 +1,4 @@
+#
 #       ___ ___      __      ___    ___     ____
 #     /' __` __`\  /'__`\   /'___\ / __`\  /',__\
 #   __/\ \/\ \/\ \/\ \L\.\_/\ \__//\ \L\ \/\__, `\
@@ -14,13 +15,6 @@
     export PROJ_DIR="$HOME/Projs"
 
     export LC_ALL="en_GB.UTF-8"
-
-# }}}
-# PATH {{{
-
-    NIMBLE_BIN="$HOME/.nimble/bin"
-    PYTHON_BIN="$HOME/Library/Python/3.9/bin"
-    export PATH="$PATH:/usr/local/sbin:$PYTHON_BIN:$NIMBLE_BIN"
 
 # }}}
 # ALIASES {{{
@@ -55,5 +49,23 @@
     init_rvm() {
         [ -s "$RVM_DIR/scripts/rvm" ] && \. "$RVM_DIR/scripts/rvm"
     }
+
+    updeps() {
+        brew update
+        brew upgrade
+        brew upgrade --cask
+        nvim +PlugUpdate +qa
+        nvim +PlugUpgrade +qa
+        nvim +CocUpdateSync +qa
+    }
+
+# }}}
+# PATH {{{
+
+    PYTHON_BIN="$HOME/Library/Python/3.9/bin"
+    export PATH="$CUSTOM_PATH:$PYTHON_BIN:$PATH"
+
+    # remove duplicated path
+    typeset -U path
 
 # }}}

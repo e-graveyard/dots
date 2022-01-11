@@ -1,3 +1,4 @@
+#
 #                    __
 #                   /\ \
 #      ____     ____\ \ \___   _ __   ___
@@ -119,10 +120,15 @@
         pip
         zsh-autosuggestions
         zsh-syntax-highlighting
-        )
+    )
 
     # source oh-my-zsh
     source "$ZSH/oh-my-zsh.sh"
+
+    # allows using option/alt-v to open vim and edit the shell command
+    autoload edit-command-line
+    zle -N edit-command-line
+    bindkey -M vicmd v edit-command-line
 
 # }}}
 # FUNCTIONS {{{
@@ -166,13 +172,23 @@
 
     # dots
     export DOTS_DIR="$HOME/dots/pkgs"
-    export VIM_PROF="$DOTS_DIR/vim"
+    export VIM_PROFILE="$DOTS_DIR/vim"
 
     # node version manager (nvm)
     export NVM_DIR="$HOME/.nvm"
 
     # ruby version manager (rvm)
     export RVM_DIR="$HOME/.rvm"
+
+# }}}
+# PATH {{{
+
+    CUSTOM_BIN_PATH="$HOME/bin"
+    NIMBLE_PATH="$HOME/.nimble/bin"
+    GOLANG_PATH="$HOME/go/bin"
+    OPENJDK_PATH="/usr/local/opt/openjdk/bin"
+
+    CUSTOM_PATH="$CUSTOM_BIN_PATH:$NIMBLE_PATH:$OPENJDK_PATH:$GOLANG_PATH:/usr/local/sbin"
 
 # }}}
 # OS-BASED {{{
@@ -188,14 +204,6 @@
     esac
 
 # }}}
-# PATH {{{
-
-    # muh binaries & go stuff
-    GOLANG_PATH="$HOME/bin:$HOME/go/bin"
-    OPENJDK_PATH="/usr/local/opt/openjdk/bin"
-    export PATH="$PATH:$OPENJDK_PATH:$GOLANG_PATH"
-
-# }}}
 # ALIASES {{{
 
     # programs
@@ -209,12 +217,9 @@
 
     # configuration files
     alias _dots="v $DOTS_DIR"
-    alias _vim="v $VIM_PROF/.vimrc $HOME/.config/nvim/coc-settings.json"
+    alias _vim="v $VIM_PROFILE/.vimrc $HOME/.config/nvim/coc-settings.json"
     alias _zsh="v $DOTS_DIR/zsh/.zshrc $DOTS_DIR/zsh/.macos_prefs.zsh $DOTS_DIR/zsh/.linux_prefs.zsh"
-    alias _term="v $DOTS_DIR/termite/.config/termite/config"
     alias _tmux="v $DOTS_DIR/tmux/.config/tmux/.tmux.conf"
-    alias _emacs="v $DOTS_DIR/emacs/.emacs"
-    alias _maps="v $DOTS_DIR/sxhkd/.config/sxhkd/sxhkdrc"
 
     # common actions
     alias uzc="source $HOME/.zshrc"

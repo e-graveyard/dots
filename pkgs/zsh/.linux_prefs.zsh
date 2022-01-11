@@ -1,3 +1,4 @@
+#
 #    ___
 #   /\_ \    __
 #   \//\ \  /\_\    ___   __  __  __  _
@@ -30,11 +31,6 @@
     # <https://bugs.launchpad.net/ubuntu/+source/xdg-utils/+bug/545044>
     export KDE_FULL_SESSION=true
     export KDE_SESSION_VERSION=5
-
-# }}}
-# PATH {{{
-
-    export PATH="$PATH:$HOME/.local/bin"
 
 # }}}
 # ALIASES {{{
@@ -90,5 +86,10 @@
         reload_xrdb
         mjob emacs --fullscreen
     }
+
+# }}}
+# PATH {{{
+
+    export PATH="$HOME/.local/bin:$PATH"
 
 # }}}
