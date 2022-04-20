@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nacro90/numb.nvim'               " Peek a given line using :<number>
     Plug 'folke/zen-mode.nvim'             " Concentration mode (remove most UI components)
     Plug 'numToStr/FTerm.nvim'             " Floating terminal
+    Plug 'triglav/vim-visual-increment'    " Create increasing/decreasing sequence of letters and numbers
 
 " }}}
 " APPEARANCE {{{
@@ -127,7 +128,6 @@ call plug#end()
                 \ 'coc-clangd',
                 \ 'coc-go',
                 \ 'coc-jedi',
-                \ 'coc-sqlfluff',
                 \ 'coc-vimlsp',
                 \ 'coc-word',
                 \ 'coc-translator',
@@ -225,7 +225,7 @@ call plug#end()
     set fillchars=vert:│      " Makes a continuous line with a special UTF-8 char
     set laststatus=2          " Always display the status line
     set formatoptions+=t      " Automatic word wrapping
-    set textwidth=79          " Sets max number of characters width per line
+    set textwidth=170         " Sets max number of characters width per line
     set wildmode=longest:full " ...
     set wildchar=<Tab>        " ...
     set shortmess+=I          " Don't display the intro message
