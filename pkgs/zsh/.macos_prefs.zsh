@@ -23,6 +23,9 @@
     # usage, e.g.: pwgen -cns 32 1 | to_clipboard
     alias to_clipboard="pbcopy"
 
+    # poetry task execution with poe(thepoet)
+    alias poe="poetry run poe"
+
 # }}}
 # FUNCTIONS {{{
 
