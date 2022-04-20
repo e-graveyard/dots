@@ -54,12 +54,26 @@
     }
 
     updeps() {
-        brew update
-        brew upgrade
-        brew upgrade --cask
-        nvim +PlugUpdate +qa
-        nvim +PlugUpgrade +qa
-        nvim +CocUpdateSync +qa
+        brew update \
+            && brew upgrade \
+            && brew upgrade --cask \
+            && nvim +PlugUpdate +qa \
+            && nvim +PlugUpgrade +qa \
+            && nvim +CocUpdateSync +qa
+    }
+
+    pb() {
+        local pb_tmp_file
+        local pb_url
+
+        pb_tmp_file="/tmp/__pb_${RANDOM}"
+        nvim "$pb_tmp_file"
+
+        pb_url="$(cat $pb_tmp_file | nc termbin.com 9999)"
+        printf "\npastebin @ %s\n" "$pb_url"
+        printf "%s" "$pb_url" | xargs | to_clipboard
+
+        rm "$pb_tmp_file"
     }
 
 # }}}
