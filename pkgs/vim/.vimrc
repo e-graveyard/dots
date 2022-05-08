@@ -225,7 +225,7 @@ call plug#end()
     set fillchars=vert:│      " Makes a continuous line with a special UTF-8 char
     set laststatus=2          " Always display the status line
     set formatoptions+=t      " Automatic word wrapping
-    set textwidth=170         " Sets max number of characters width per line
+    set textwidth=120         " Sets max number of characters width per line
     set wildmode=longest:full " ...
     set wildchar=<Tab>        " ...
     set shortmess+=I          " Don't display the intro message
